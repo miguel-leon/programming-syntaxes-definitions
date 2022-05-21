@@ -1,15 +1,17 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 specifiers:
   '@types/jest': ^27.4.1
   jest: ^27.5.1
+  spliceation-transmutator.typescript: ^0.0.4
   ts-jest: ^27.1.4
   typescript: ^4.6.3
 
 devDependencies:
   '@types/jest': 27.4.1
   jest: 27.5.1
-  ts-jest: 27.1.4_9985e1834e803358b7be1e6ce5ca0eea
+  spliceation-transmutator.typescript: 0.0.4
+  ts-jest: 27.1.4_tgc6da2oqazvrn56dzwolsqo5i
   typescript: 4.6.3
 
 packages:
@@ -184,6 +186,8 @@ packages:
     resolution: {integrity: sha512-7yJPvPV+ESz2IUTPbOL+YkIGyCqOyNIzdguKQuJGnH7bg1WTIifuM21YqokFt/THWh1AkCRn9IgoykTRCBVpzA==}
     engines: {node: '>=6.0.0'}
     hasBin: true
+    dependencies:
+      '@babel/types': 7.17.0
     dev: true
 
   /@babel/plugin-syntax-async-generators/7.8.4_@babel+core@7.17.5:
@@ -966,6 +970,10 @@ packages:
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: 1.0.0
+    dev: true
+
+  /commonly.typescript/0.1.2:
+    resolution: {integrity: sha512-8z8DF8AsrGHDu2ncxTJUunoeK2rfoFAt4vs4ZSfGyzyjMtYrgfELFRAcegOPEPTL0E44O41kabwZN2z9oZQvcA==}
     dev: true
 
   /concat-map/0.0.1:
@@ -2339,6 +2347,12 @@ packages:
     engines: {node: '>= 8'}
     dev: true
 
+  /spliceation-transmutator.typescript/0.0.4:
+    resolution: {integrity: sha512-43Z8otUiFVTc+V67BNwKV3jlaC86RxCf6BVpYK/qshKsSPDE/hBiOV6Gor8Yi8dGEV7NkpakCdjeTX5HkKDRFw==}
+    dependencies:
+      commonly.typescript: 0.1.2
+    dev: true
+
   /sprintf-js/1.0.3:
     resolution: {integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=}
     dev: true
@@ -2480,7 +2494,7 @@ packages:
       punycode: 2.1.1
     dev: true
 
-  /ts-jest/27.1.4_9985e1834e803358b7be1e6ce5ca0eea:
+  /ts-jest/27.1.4_tgc6da2oqazvrn56dzwolsqo5i:
     resolution: {integrity: sha512-qjkZlVPWVctAezwsOD1OPzbZ+k7zA5z3oxII4dGdZo5ggX/PL7kvwTM0pXTr10fAtbiVpJaL3bWd502zAhpgSQ==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     hasBin: true
