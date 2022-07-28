@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Syntaxes definitions for various programming languages",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc && cp package.json , readme.md , definitions/ ./dist -Recurse -Force"
   },
   "peerDependencies": {
     "spliceation-transmutator.typescript": "^0.0.4"

@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
+    "declaration": true,
     "esModuleInterop": true,
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "noImplicitReturns": true,
+    "outDir": "dist",
     "resolveJsonModule": true,
     "strict": true,
     "target": "ESNext"
-  }
+  },
+  "files": ["index.ts"]
 }
