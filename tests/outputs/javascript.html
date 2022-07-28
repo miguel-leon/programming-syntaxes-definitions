@@ -97,3 +97,15 @@ LCMCalculator.prototype = { <comment>// object literal</comment>
 <keyword>function</keyword> printResult(obj) {
 	output(obj + <string>", gcd = "</string> + obj.gcd() + <string>", lcm = "</string> + obj.lcm());
 }
+
+<comment>// Regular expressions.</comment>
+
+<keyword>const</keyword> re = <regexp>/^(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}$/</regexp>;
+
+<keyword>const</keyword> escaped = <regexp>/\\\\/</regexp>, flaggy = <regexp>/(?:)/dgimsuy</regexp>;
+
+<keyword>const</keyword> withStringSyntax = <regexp>/"hola"/</regexp>;
+
+<keyword>const</keyword> withCommentSyntax = <regexp>/\/*hola*/</regexp>;
+
+<keyword>const</keyword> itsNaN = 5*<regexp>/asd/</regexp>;

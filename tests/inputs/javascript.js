@@ -97,3 +97,15 @@ function output(x) {
 function printResult(obj) {
 	output(obj + ", gcd = " + obj.gcd() + ", lcm = " + obj.lcm());
 }
+
+// Regular expressions.
+
+const re = /^(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}$/;
+
+const escaped = /\\\\/, flaggy = /(?:)/dgimsuy;
+
+const withStringSyntax = /"hola"/;
+
+const withCommentSyntax = /\/*hola*/;
+
+const itsNaN = 5*/asd/;
