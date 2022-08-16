@@ -3,14 +3,14 @@ lockfileVersion: 5.4
 specifiers:
   '@types/jest': ^27.4.1
   jest: ^27.5.1
-  spliceation-transmutator.typescript: ^0.0.4
+  spliceation-transmutator.typescript: ^0.0.5
   ts-jest: ^27.1.4
   typescript: ^4.6.3
 
 devDependencies:
   '@types/jest': 27.4.1
   jest: 27.5.1
-  spliceation-transmutator.typescript: 0.0.4
+  spliceation-transmutator.typescript: 0.0.5
   ts-jest: 27.1.4_tgc6da2oqazvrn56dzwolsqo5i
   typescript: 4.6.3
 
@@ -2347,8 +2347,8 @@ packages:
     engines: {node: '>= 8'}
     dev: true
 
-  /spliceation-transmutator.typescript/0.0.4:
-    resolution: {integrity: sha512-43Z8otUiFVTc+V67BNwKV3jlaC86RxCf6BVpYK/qshKsSPDE/hBiOV6Gor8Yi8dGEV7NkpakCdjeTX5HkKDRFw==}
+  /spliceation-transmutator.typescript/0.0.5:
+    resolution: {integrity: sha512-RyAE3j35LYuj47XSaBMBVEf0eiRcdMYXrr9tvTv/lMb5FYP5gpCeUuuP9mVy5XkmkoOJDQQzG6JHg2TV/35CIw==}
     dependencies:
       commonly.typescript: 0.1.2
     dev: true

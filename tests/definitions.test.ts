@@ -17,13 +17,12 @@ describe('Language definitions', () => {
 		])
 	)('Transmuted output for language: %s.', async (language, inputFile) => {
 		const transmutation = new Transmutation(
-			Transmutation.fromJSON(await import(`../definitions/${ language }.definition.json`)),
-			transmuter
+			Transmutation.fromJSON(await import(`../definitions/${ language }.definition.json`))
 		);
 
 		const input = (await readFile(resolve(__dirname, inputsDir, inputFile))).toString();
 
-		const result = transmutation.apply(input);
+		const result = transmutation.apply(input, transmuter);
 
 		const output = (await readFile(resolve(__dirname, outputsDir, `${ language }.html`))).toString();
 
