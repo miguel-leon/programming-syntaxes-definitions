@@ -1,0 +1,126 @@
+{
+  "$schema": "../node_modules/spliceation-transmutator.typescript/schema.json",
+  "definition": [
+    {
+      "concurrent": [
+        {
+          "match": "\\/\\/.*|#.*",
+          "class": "comment"
+        },
+        {
+          "match": "\\\/\\*[^]*\\*\\\/",
+          "class": "comment",
+          "multiline": true
+        },
+        {
+          "match": "([\"'])(?:{[^}]*}|[^\"])*?(?<!\\\\)(?:\\\\\\\\)*\\1",
+          "class": "string",
+          "multiline": true,
+          "recursion": [
+            {
+              "match": "{[^}]*}",
+              "class": "interpolation",
+              "multiline": true,
+              "recursion": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "keyword",
+      "ignoreCase": true,
+      "match": [
+        "array",
+        "abstract",
+        "and",
+        "array",
+        "as",
+        "break",
+        "bool",
+        "boolean",
+        "callable",
+        "case",
+        "catch",
+        "class",
+        "clone",
+        "const",
+        "continue",
+        "declare",
+        "default",
+        "die",
+        "do",
+        "echo",
+        "else",
+        "elseif",
+        "empty",
+        "enddeclare",
+        "endfor",
+        "endforeach",
+        "endif",
+        "endswitch",
+        "endwhile",
+        "eval",
+        "exit",
+        "extends",
+        "false",
+        "final",
+        "for",
+        "float",
+        "foreach",
+        "fn",
+        "function",
+        "global",
+        "goto",
+        "if",
+        "implements",
+        "include",
+        "include_once",
+        "instanceof",
+        "insteadof",
+        "interface",
+        "isset",
+        "int",
+        "iterable",
+        "list",
+        "namespace",
+        "new",
+        "null",
+        "numeric",
+        "match",
+        "mixed",
+        "or",
+        "object",
+        "print",
+        "private",
+        "protected",
+        "public",
+        "require",
+        "require_once",
+        "resource",
+        "return",
+        "static",
+        "switch",
+        "throw",
+        "true",
+        "trait",
+        "try",
+        "unset",
+        "use",
+        "void",
+        "while",
+        "xor",
+        "yield",
+        "yield from"
+      ]
+    },
+    {
+      "match": "[a-zA-Z_][a-zA-Z0-9_]*\\s?(?=\\()",
+      "class": "function"
+    },
+    {
+      "match": "\\$([a-zA-Z_][a-zA-Z0-9_]*)",
+      "class": "variable"
+    }
+  ]
+}

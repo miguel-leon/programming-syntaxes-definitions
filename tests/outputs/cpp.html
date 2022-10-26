@@ -1,0 +1,97 @@
+<predirectives>#include <header><iostream></header></predirectives>
+
+<predirectives>#include <header><cstdlib></header></predirectives>
+
+<predirectives>#include <header><bits/stdc++.h></header></predirectives>
+
+<keyword>using</keyword> <keyword>namespace</keyword> std;
+
+<keyword>int</keyword> <function>main</function>() {
+  <keyword>int</keyword> option;
+  <keyword>int</keyword> var [20][20];
+  <keyword>string</keyword> arr[10][10];
+  <keyword>bool</keyword> repeat = <keyword>true</keyword>;
+
+  <keyword>do</keyword> {
+    cout << <string>"\n\n THIS IS THE OPTION </string>
+<string>MENU "</string> << endl;
+    cout << <string>"1. CREATE TWO ARRAYS"</string> << endl;
+    cout << <string>"2. ASCEND ORDER"</string> << endl;
+    cout << <string>"0. QUIT"</string> << endl;
+
+    cout << <string>"\nSelect an Option: "</string>;
+    cin >> option;
+
+    <keyword>switch</keyword> (option) {
+
+    <keyword>case</keyword> 1: {
+
+      <comment>/*Take input of</comment>
+<comment>      search Element */</comment>
+      <keyword>int</keyword> Search_ele;
+      <function>printf</function>(<string>"Enter the search element:"</string>);
+      <function>scanf</function>(<string>"<interpolation>%d</interpolation>"</string>, & Search_ele);
+
+      <comment>//Compute the position of the search Element</comment>
+      <keyword>int</keyword> flag = 0, row, col;
+      <keyword>for</keyword> (<keyword>int</keyword> i = 0; i < 2; i++) {
+        <keyword>for</keyword> (<keyword>int</keyword> j = 0; j < 2; j++) {
+          <keyword>if</keyword> (s[i][j] == Search_ele) {
+            flag = 1;
+            row = i;
+            col = j;
+          }
+        }
+      }
+      <comment>//Display position of the search Element</comment>
+      <keyword>if</keyword> (flag == 1)
+        <function>printf</function>(<string>"Position of Search Element <interpolation>%d</interpolation> is (<interpolation>%d</interpolation>, <interpolation>%d</interpolation>)"</string>, Search_ele, row, col);
+      <keyword>else</keyword>
+        <function>printf</function>(<string>"Given Search Element is not found...."</string>);
+    }
+
+    <keyword>break</keyword>;
+    <keyword>case</keyword> 2: {
+
+      <comment>//Take input of search Element</comment>
+      <keyword>string</keyword> Search_ele;
+      <function>printf</function>(<string>"Enter the search element:"</string>);
+      cin >> Search_ele;
+
+      <comment>/*Compute the position of the search Element*/</comment>
+      <keyword>int</keyword> flag = 0, row, col;
+      <keyword>for</keyword> (<keyword>int</keyword> i = 0; i < 2; i++) {
+        <keyword>for</keyword> (<keyword>int</keyword> j = 0; j < 2; j++) {
+          <keyword>if</keyword> (arr[i][j] == Search_ele) {
+            flag = 1;
+            row = i;
+            col = j;
+          }
+        }
+      }
+      <comment>//Display position of the search Element</comment>
+      <keyword>if</keyword> (flag == 1)
+      <keyword>else</keyword>
+        <function>printf</function>(<string>"Given Search Element is not found...."</string>);
+
+      <function>printf</function>(<string>"name?\n"</string>);
+      <function>scanf</function>(<string>"<interpolation>%100s</interpolation>"</string>, temporal);
+
+      <keyword>string</keyword> nombre = temporal;
+
+      <function>printf</function>(<string>"Welcome <interpolation>%s</interpolation>"</string>, nombre.<function>c_str</function>());
+
+      <keyword>break</keyword>;
+
+    }
+
+    <keyword>case</keyword> 0:
+      repetir = <keyword>false</keyword>;
+      <keyword>break</keyword>;
+    }
+
+  }
+  <keyword>while</keyword> (repeat);
+
+  <keyword>return</keyword> 0;
+}
