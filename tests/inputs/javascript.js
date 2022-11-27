@@ -9,6 +9,12 @@ some
 "Then \\\\\"the 'rest'\"";
 'is "taken" from \\\'https://en.wikipedia.org/wiki/JavaScript\'\\';
 
+`\
+`;
+
+`\`
+`;
+
 
 /* Finds the lowest common multiple (LCM) of two numbers */
 function LCMCalculator(x, y) { // constructor function
@@ -109,3 +115,5 @@ const withStringSyntax = /"hola"/;
 const withCommentSyntax = /\/*hola*/;
 
 const itsNaN = 5*/asd/;
+
+/\/(?=[^/*]).*?(?<!\\)(?:\\\\)*\//g;
