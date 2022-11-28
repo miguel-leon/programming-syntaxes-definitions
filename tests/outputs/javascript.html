@@ -9,6 +9,12 @@
 <string>"Then \\\\\"the 'rest'\""</string>;
 <string>'is "taken" from \\\'https://en.wikipedia.org/wiki/JavaScript\'\\'</string>;
 
+<string>`\</string>
+<string>`</string>;
+
+<string>`\`</string>
+<string>`</string>;
+
 
 <comment>/* Finds the lowest common multiple (LCM) of two numbers */</comment>
 <keyword>function</keyword> LCMCalculator(x, y) { <comment>// constructor function</comment>
@@ -109,3 +115,5 @@ LCMCalculator.prototype = { <comment>// object literal</comment>
 <keyword>const</keyword> withCommentSyntax = <regexp>/\/*hola*/</regexp>;
 
 <keyword>const</keyword> itsNaN = 5*<regexp>/asd/</regexp>;
+
+<regexp>/\/(?=[^/*]).*?(?<!\\)(?:\\\\)*\//g</regexp>;
