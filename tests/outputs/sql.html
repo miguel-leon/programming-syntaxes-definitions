@@ -1,0 +1,56 @@
+<keyword>SET</keyword> 
+  SQL_MODE = <string>"NO_AUTO_VALUE_ON_ZERO"</string>;
+<keyword>SET</keyword> 
+  AUTOCOMMIT = 0;
+<keyword>START</keyword> <keyword>TRANSACTION</keyword>;
+<keyword>SET</keyword> 
+  time_zone = <string>"+00:00"</string>;
+<keyword>CREATE</keyword> <keyword>TABLE</keyword> <function>dept_emp </function>(
+  emp_no <keyword>INT</keyword> <keyword>NOT</keyword> <keyword>NULL</keyword>, 
+  dept_no <keyword>CHAR</keyword>(4) <keyword>NOT</keyword> <keyword>NULL</keyword>, 
+  from_date <keyword>DATE</keyword> <keyword>NOT</keyword> <keyword>NULL</keyword>, 
+  to_date <keyword>DATE</keyword> <keyword>NOT</keyword> <keyword>NULL</keyword>, 
+  <keyword>KEY</keyword> (emp_no), 
+  <keyword>KEY</keyword> (dept_no), 
+  <keyword>FOREIGN</keyword> <keyword>KEY</keyword> (emp_no) <keyword>REFERENCES</keyword> <function>employees </function>(emp_no) <keyword>ON</keyword> <keyword>DELETE</keyword> <keyword>CASCADE</keyword>, 
+  <keyword>FOREIGN</keyword> <keyword>KEY</keyword> (dept_no) <keyword>REFERENCES</keyword> <function>departments </function>(dept_no) <keyword>ON</keyword> <keyword>DELETE</keyword> <keyword>CASCADE</keyword>, 
+  <keyword>PRIMARY</keyword> <keyword>KEY</keyword> (emp_no, dept_no)
+);
+<keyword>INSERT</keyword> <keyword>INTO</keyword> <string>`USER`</string> (
+  <string>`ID`</string>, <string>`USUARIO`</string>, <string>`PASSWORD`</string>, <string>`SALDO`</string>, 
+  <string>`RATE`</string>, <string>`BLOQUEADO`</string>, <string>`IP`</string>
+) 
+<keyword>VALUES</keyword> 
+  (
+    1, <string>'dd77b701661c5b55'</string>, <string>'12358132134'</string>, 
+    <string>'0.0000'</string>, 1, 0, <string>'190.207.11.113'</string>
+  ), 
+  (
+    2, <string>'b54d66a5fd158d3f'</string>, <string>'12358132134'</string>, 
+    <string>'0.0000'</string>, 1, 0, <string>'186.94.247.219'</string>
+  );
+
+<comment>-- This is a single line comment.</comment>
+
+<keyword>ALTER</keyword> <keyword>TABLE</keyword> 
+  <string>`USER`</string> 
+<keyword>ADD</keyword> 
+  <keyword>PRIMARY</keyword> <keyword>KEY</keyword> (<string>`ID`</string>);
+<keyword>ALTER</keyword> <keyword>TABLE</keyword> 
+  <string>`USER`</string> <keyword>MODIFY</keyword> <string>`ID`</string> <keyword>int</keyword>(11) <keyword>NOT</keyword> <keyword>NULL</keyword> <keyword>AUTO_INCREMENT</keyword>, 
+  <keyword>AUTO_INCREMENT</keyword> = 3;
+<keyword>COMMIT</keyword>;
+
+<comment>/*This is a Multiline</comment>
+<comment>comment */</comment>
+
+<keyword>SELECT</keyword> 
+  <keyword>REPLACE</keyword>(<string>"SQL Tutorial"</string>, <string>"SQL"</string>, <string>"HTML"</string>);
+<keyword>SELECT</keyword> 
+  ProductName, 
+  Price, 
+  <function>ROUND</function>(Sell, 1) <keyword>AS</keyword> RoundedPrice 
+<keyword>FROM</keyword> 
+  Products;
+<keyword>SELECT</keyword> 
+  <function>TIME_FORMAT</function>(<string>"19:30:10"</string>, <string>"%H %i %s"</string>);
