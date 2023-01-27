@@ -13,7 +13,7 @@
           "multiline": true
         },
         {
-          "match": "([\"'])(?:{[^}]*}|[^\"])*?(?<!\\\\)(?:\\\\\\\\)*\\1",
+          "match": "([\"'])(?:\\\\.|[^])*?\\1",
           "class": "string",
           "multiline": true,
           "recursion": [
@@ -115,7 +115,7 @@
       ]
     },
     {
-      "match": "[a-zA-Z_][a-zA-Z0-9_]*\\s?(?=\\()",
+      "match": "\\$?[a-zA-Z_][a-zA-Z0-9_]*(?=\\()",
       "class": "function"
     },
     {
