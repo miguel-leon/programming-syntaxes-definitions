@@ -1,0 +1,128 @@
+<comment>/*Test code: </comment>
+<comment>https://go101.org/article/memory-layout.html*/</comment>
+
+<keyword>package</keyword> main
+<keyword>import</keyword> (<string>"fmt"</string>)
+
+<keyword>func</keyword> <function>main</function>() {
+    day: = 4
+
+      <keyword>switch</keyword> day {
+      <keyword>case</keyword> 1:
+        fmt.<function>Println</function>(<string>"Monday"</string>)
+      <keyword>case</keyword> 2:
+        fmt.<function>Println</function>(<string>"Tuesday"</string>)
+      <keyword>case</keyword> 3:
+        fmt.<function>Println</function>(<string>"Wednesday"</string>)
+    }
+
+    <keyword>func</keyword> <function>f0</function>() <datatype>float64</datatype> {
+      <keyword>return</keyword> 1
+    }
+    <keyword>func</keyword> <function>f1</function>()(<datatype>float64</datatype>, <datatype>float64</datatype>) {
+      <keyword>return</keyword> 1, 2
+    }
+
+    <keyword>func</keyword> <function>myMessage</function>() {
+      fmt.<function>Println</function>(<string>"I just got executed!"</string>)
+    }
+
+    <comment>// These lines compile okay.</comment>
+    <function>f2</function>(<function>f0</function>(), 123)
+    <function>f2</function>(<function>f1</function>())
+    fmt.<function>Println</function>(<function>f1</function>())
+    _ = <function>complex</function>(<function>f1</function>())
+    _ = <function>complex</function>(T {}.<function>m</function>())
+    <function>f2</function>(<function>I</function>(T {}).<function>m</function>())
+
+    <keyword>var</keyword> student1 <datatype>string</datatype>
+    student = <string>"John"</string>
+    fmt.<function>Println</function>(student1)
+
+    <keyword>package</keyword> main
+
+    <keyword>if</keyword> num:= 9;num < 0 {
+      fmt.<function>Println</function>(num, <string>"is negative"</string>)
+    } <keyword>else</keyword> <keyword>if</keyword> num < 10 {
+      fmt.<function>Println</function>(num, <string>"has 1 digit"</string>)
+    } <keyword>else</keyword> {
+      fmt.<function>Println</function>(num, <string>"has multiple digits"</string>)
+    }
+
+    <keyword>var</keyword> a = <keyword>map</keyword>[<datatype>string</datatype>] <datatype>string</datatype> {
+      <string>"brand"</string>: <string>"Ford"</string>,
+      <string>"model"</string>: <string>"Mustang"</string>,
+      <string>"year"</string>: <string>"1964"</string>
+    }
+
+    b: = <keyword>map</keyword>[<datatype>string</datatype>] <datatype>int</datatype> {
+      <string>"Oslo"</string>: 1,
+      <string>"Bergen"</string>: 2,
+      <string>"Trondheim"</string>: 3,
+      <string>"Stavanger"</string>: 4
+    }
+
+      fmt.<function>Printf</function>(<string>"a\t<interpolation>%v</interpolation>\n"</string>, a)
+    fmt.<function>Printf</function>(<string>"b\t<interpolation>%d</interpolation>\n"</string>, b)
+
+    <function>type</function>(
+      T1 <keyword>struct</keyword> {
+        v <datatype>uint64</datatype>
+      }
+
+      T2 <keyword>struct</keyword> {
+        _ <datatype>int16</datatype>
+        x T1
+        y * T1
+      }
+
+      T3 <keyword>struct</keyword> {
+        _ <datatype>int16</datatype>
+        x[6] <datatype>int64</datatype>
+        y * [6] <datatype>int64</datatype>
+      }
+    )
+
+    adj: = [2] <datatype>string</datatype> {
+      <string>"big"</string>, <string>"tasty"</string>
+    }
+
+    fruits: = [3] <datatype>string</datatype> {
+      <string>"apple"</string>, <string>"orange"</string>, <string>"banana"</string>
+    }
+
+    <keyword>for</keyword> i:= 0; i < <function>len</function>(adj); i++{
+      <keyword>for</keyword> j:= 0; j < <function>len</function>(fruits); j++{
+        fmt.<function>Println</function>(adj[i], fruits[j])
+        <keyword>if</keyword> j == 3 {
+          <keyword>break</keyword>
+        }
+
+        <keyword>var</keyword> a <datatype>int64</datatype> <comment>// a is safe</comment>
+        <keyword>var</keyword> b T1 <comment>// b.v is safe</comment>
+        <keyword>var</keyword> c[6] <datatype>int64</datatype> <comment>// c[0] is safe</comment>
+
+        <keyword>var</keyword> d T2 <comment>// d.x.v is unsafe</comment>
+        <keyword>var</keyword> e T3 <comment>// e.x[0] is unsafe</comment>
+
+        <keyword>func</keyword> <function>f</function>() {
+          <keyword>var</keyword> f <datatype>int64</datatype> <comment>// f is safe</comment>
+          <keyword>var</keyword> g = [] <datatype>int64</datatype> {
+              5: 0
+            } <comment>// g[0] is safe</comment>
+
+          <keyword>var</keyword> h = e.x[: ] <comment>// h[0] is unsafe</comment>
+
+          <comment>// Here, d.y.v and e.y[0] are both safe,</comment>
+          <comment>// for *d.y and *e.y are both allocated.</comment>
+          d.y = <function>new</function>(T1)
+          e.y = & [6] <datatype>int64</datatype> {}
+
+          _, _, _ = f, g, h
+        }
+
+        <comment>// In fact, all elements in c, g and e.y.v are</comment>
+        <comment>// safe to be accessed atomically, though Go</comment>
+        <comment>// official documentation never makes the guarantees.</comment>
+      }
+    } 
