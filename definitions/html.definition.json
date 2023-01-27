@@ -13,7 +13,7 @@
           "class": "tag",
           "recursion": [
             {
-              "match": "([\"'])(?:[^\"'])*?(?<!\\\\)(?:\\\\\\\\)*\\1",
+              "match": "([\"'])(?:\\\\.|[^])*?\\1",
               "class": "string",
               "multiline": true
             },
@@ -143,7 +143,7 @@
                 "tabindex",
                 "target",
                 "translate",
-                "(?<=\\s)title",
+                "title(?=\\=)",
                 "type",
                 "usemap",
                 "value",
@@ -158,10 +158,6 @@
     {
       "match": "</.*?>",
       "class": "tag"
-    },
-    {
-      "class": "regexp",
-      "match": "\\/(?=[^/*]).*?(?<!\\\\)(?:\\\\\\\\)*\\/[dgimsuy]*"
     }
   ]
 }

@@ -4,7 +4,7 @@
     {
       "concurrent": [
         {
-          "match": "([\"'])(?:{[^}]*}|[^\"])*?(?<!\\\\)(?:\\\\\\\\)*\\1",
+          "match": "([\"'])(?:\\\\.|[^])*?\\1",
           "class": "string",
           "multiline": true,
           "recursion": [
