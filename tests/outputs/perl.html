@@ -1,0 +1,161 @@
+<comment>#Test code: https://www.tutorialspoint.com/perl/perl_syntax.html.</comment>
+<comment>#!/usr/bin/perl</comment>
+
+<comment>=begin</comment>
+<comment>This is </comment>
+<comment>a Multiline </comment>
+<comment>comment</comment>
+<comment>=cut</comment>
+
+<variable>$var</variable>    = <string>"This is string scalar!"</string>;
+<variable>$quote</variable>  = <string>'I m inside single quote - $var'</string>;
+<variable>$double</variable> = <string>"This is inside single quote - <interpolation><variable>$var</variable></interpolation>"</string>;
+<variable>$escape</variable> = <string>"This example of escape -\tHello, World!"</string>;
+
+<variable>$str</variable> = <string>"hello"</string> . <string>"world"</string>;    <comment># Concatenates strings.</comment>
+<variable>$num</variable> = 5 + 10;               <comment># adds two numbers.</comment>
+<variable>$mul</variable> = 4 * 5;                <comment># multiplies two numbers.</comment>
+<variable>$mix</variable> = <variable>$str</variable> . <variable>$num</variable>;          <comment># concatenates string and number.</comment>
+
+<variable>@names</variable> = ( <string>'John Paul'</string>, <string>'Lisa'</string>, <string>'Kumar'</string> );
+
+<variable>@copy</variable> = <variable>@names</variable>;
+<variable>$size</variable> = <variable>@names</variable>;
+<variable>$r</variable>    = \<variable>@var</variable>;               <comment>#var reference.</comment>
+
+<function>print</function> <string>"Given names are : <interpolation><variable>@copy</variable></interpolation>\n"</string>;
+<function>print</function> <string>"Number of names are : <interpolation><variable>$size</variable></interpolation>\n"</string>;    <comment># Other type interpolation</comment>
+
+<variable>@days</variable> = <string>qw/Mon Tue Wed Thu Fri Sat Sun/</string>;
+
+<function>print</function> <string>"<interpolation><variable>$days</variable></interpolation>[0]\n"</string>;
+<function>print</function> <string>"<interpolation><variable>$days</variable></interpolation>[1]\n"</string>;
+<function>print</function> <string>"<interpolation><variable>$days</variable></interpolation>[2]\n"</string>;
+<function>print</function> <string>"<interpolation><variable>$days</variable></interpolation>[6]\n"</string>;
+<function>print</function> <string>"<interpolation><variable>$days</variable></interpolation>[-1]\n"</string>;
+<function>print</function> <string>"<interpolation><variable>$days</variable></interpolation>[-7]\n"</string>;
+
+<variable>@var_10</variable> = ( 1 .. 10 );
+<function>print</function> <string>"<interpolation><variable>@var_10</variable></interpolation>\n"</string>;
+
+<variable>@days</variable> = <string>qw/Monday Tuesday ... Sunday/</string>;
+
+<comment># sort this array</comment>
+<variable>@foods</variable> = <function>sort</function>(<variable>@foods</variable>);
+
+<function>print</function> <string>"After: <interpolation><variable>@foods</variable></interpolation>\n"</string>;
+
+<variable>$a</variable> = 100;
+
+<keyword>if</keyword> ( <variable>$a</variable> == 20 ) {
+    <comment># if condition is true then print the following</comment>
+    <function>printf</function> <string>"a has a value which is 20\n"</string>;
+}
+<keyword>elsif</keyword> ( <variable>$a</variable> == 30 ) {
+    <comment># if condition is true then print the following</comment>
+    <function>printf</function> <string>"a has a value which is 30\n"</string>;
+}
+<keyword>else</keyword> {
+    <comment># if none of the above conditions is true</comment>
+    <function>printf</function> <string>"a has a value which is <interpolation><variable>$a</variable></interpolation>\n"</string>;
+}
+
+<keyword>use</keyword> Switch;
+
+<variable>$var</variable>   = 10;
+<variable>@array</variable> = ( 10, 20, 30 );
+<variable>%hash</variable>  = ( <string>'key1'</string> => 10, <string>'key2'</string> => 20 );
+
+<keyword>switch</keyword> (<variable>$var</variable>) {
+    <keyword>case</keyword> 10  { <function>print</function> <string>"number 100\n"</string> }
+    <keyword>case</keyword> <string>"a"</string> { <function>print</function> <string>"string a"</string> }
+    <keyword>case</keyword> [ 1 .. 10, 42 ] { <function>print</function> <string>"number in list"</string> }
+    <keyword>case</keyword> ( \<variable>@array</variable> ) { <function>print</function> <string>"number in list"</string> }
+    <keyword>case</keyword> ( \<variable>%hash</variable> )  { <function>print</function> <string>"entry in hash"</string> }
+    <keyword>else</keyword>             { <function>print</function> <string>"previous case not true"</string> }
+}
+
+<keyword>use</keyword> Socket    <comment># This defines PF_INET and SOCK_STREAM</comment>
+
+<variable>$port</variable> = 12345;    <comment># The unique port used by the sever to listen requests</comment>
+<variable>$server_ip_address</variable> = <string>"10.12.12.168"</string>;
+<function>bind</function>( SOCKET, pack_sockaddr_in( <variable>$port</variable>, inet_aton(<variable>$server_ip_address</variable>) ) ) <keyword>or</keyword> <keyword>die</keyword> <string>"Can't bind to port <interpolation><variable>$port</variable></interpolation>! \n"</string>;
+
+<keyword>package</keyword> Person;
+
+<keyword>sub</keyword> new {
+    my <variable>$class</variable> = <function>shift</function>;
+    my <variable>$self</variable>  = {
+        _firstName => <function>shift</function>,
+        _lastName  => <function>shift</function>,
+        _ssn       => <function>shift</function>,
+    };
+
+    <variable>$object</variable> = new Person( <string>"Mohammad"</string>, <string>"Saleem"</string>, 23234345 );
+
+    <comment># Print all the values just for clarification.</comment>
+    <function>print</function> <string>"First Name is <interpolation><variable>$self</variable></interpolation>->{_firstName}\n"</string>;
+    <function>print</function> <string>"Last Name is <interpolation><variable>$self</variable></interpolation>->{_lastName}\n"</string>;
+    <function>print</function> <string>"SSN is <interpolation><variable>$self</variable></interpolation>->{_ssn}\n"</string>;
+    <function>bless</function> <variable>$self</variable>, <variable>$class</variable>;
+    <keyword>return</keyword> <variable>$self</variable>;
+}
+
+<variable>$a</variable> = 0;
+<variable>$b</variable> = 0;
+
+<comment># outer while loop</comment>
+<keyword>while</keyword> ( <variable>$a</variable> < 3 ) {
+    <variable>$b</variable> = 0;
+
+    <comment># inner while loop</comment>
+    <keyword>while</keyword> ( <variable>$b</variable> < 3 ) {
+        <function>print</function> <string>"value of a = <interpolation><variable>$a</variable></interpolation>, b = <interpolation><variable>$b</variable></interpolation>\n"</string>;
+        <variable>$b</variable> = <variable>$b</variable> + 1;
+    }
+    <variable>$a</variable> = <variable>$a</variable> + 1;
+    <function>print</function> <string>"Value of a = <interpolation><variable>$a</variable></interpolation>\n\n"</string>;
+}
+
+<comment>#for loop</comment>
+<keyword>for</keyword> ( <variable>$a</variable> = 10 ; <variable>$a</variable> < 20 ; <variable>$a</variable> = <variable>$a</variable> + 1 ) {
+    <function>print</function> <string>"value of a: <interpolation><variable>$a</variable></interpolation>\n"</string>;
+}
+
+my <variable>@keys</variable>   = <function>keys</function> <variable>%ENV</variable>;
+my <variable>@values</variable> = <function>values</function> <variable>%ENV</variable>;
+
+<keyword>while</keyword> (<variable>@keys</variable>) { 
+    <function>print</function> <function>pop</function>(<variable>@keys</variable>), <string>'='</string>, <function>pop</function>(<variable>@values</variable>), <string>"\n"</string>;
+}
+
+<keyword>use</keyword> POSIX qw(strftime);
+
+<variable>$datestring</variable> = strftime <string>"<interpolation><variable>%a</variable></interpolation> <interpolation><variable>%b</variable></interpolation> <interpolation><variable>%e</variable></interpolation> <interpolation><variable>%H</variable></interpolation>:<interpolation><variable>%M</variable></interpolation>:<interpolation><variable>%S</variable></interpolation> <interpolation><variable>%Y</variable></interpolation>"</string>, <function>localtime</function>;
+<function>printf</function>(<string>"date and time - <interpolation><variable>$datestring</variable></interpolation>\n"</string>);
+
+<function>open</function>( DATA, <string>"file.txt"</string> ) <keyword>or</keyword> <keyword>die</keyword> <string>"Couldn't open file file.txt, <interpolation><variable>$!</variable></interpolation>"</string>;
+
+<keyword>while</keyword> (<DATA>) {
+    <function>print</function> <string>"<interpolation><variable>$_</variable></interpolation>"</string>;
+}
+
+<function>printf</function> <variable>$totalArea</variable>;
+
+<comment>#Regular Expressions.</comment>
+
+<variable>$string</variable> = ~<regexp>/\S+\s+\S+/</regexp>;
+
+<keyword>tr</keyword> <regexp>/ a - z / A - Z /</regexp>
+
+<variable>@lines</variable> = <variable>$string</variable> = ~<regexp>/^(.*?) /</regexp>gm;
+
+<variable>$string</variable> = ~<keyword>tr</keyword> <regexp>/ a - z / a - z /</regexp> s;
+
+<function>chomp</function>(<variable>$_</variable>)
+
+<keyword>sub</keyword> ask_user {
+  <function>print</function> <string>"Hello Geeks!\n"</string>;
+}
+
+ask_user();
