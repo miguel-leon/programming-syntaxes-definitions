@@ -1,0 +1,104 @@
+<keyword>from</keyword> mymodule <keyword>import</keyword> person1
+
+<function>print</function>(<string>"Hello, World!"</string>)
+
+<comment># This is to make file executable</comment>
+
+<keyword>if</keyword> <keyword>True</keyword>:
+    <function>print</function>(<string>"True"</string>)
+<keyword>else</keyword>:
+    <function>print</function>(<string>"False"</string>)
+
+<keyword>import</keyword> sys
+
+Days = [<string>"Monday"</string>, <string>"Tuesday"</string>, <string>"Wednesday"</string>, <string>"Thursday"</string>, <string>"Friday"</string>]
+
+word = <string>"word"</string>
+
+sentence = <string>"This is a sentence."</string>
+
+paragraph = <string>"""This is a paragraph. It is</string>
+<string>made up of multiple lines and sentences."""</string>
+
+thisdict = {<string>"brand"</string>: <string>"Ford"</string>, <string>"model"</string>: <string>"Mustang"</string>, <string>"year"</string>: 1964}
+
+<function>print</function>(thisdict[<string>"brand"</string>])
+
+<comment># You.</comment>
+<comment># Cannot.</comment>
+<comment># Comment.</comment>
+<comment># Multilines.</comment>
+
+<keyword>import</keyword> sys
+
+x = <string>"foo"</string>
+sys.stdout.<function>write</function>(x + <string>"\n"</string>)
+
+<comment># Interpolation.</comment>
+
+name = <string>"World"</string>
+program = <string>"Python"</string>
+<function>print</function>(f <string>'Hello <interpolation>{name}</interpolation>! This is <interpolation>{program}</interpolation>'</string>)
+<function>print</function>(<string>"<interpolation>%s</interpolation> <interpolation>%s</interpolation>"</string> % (<string>'Hello'</string>, <string>'World'</string>, ))
+<function>print</function>(<string>'Hello <interpolation>%s</interpolation>! This is <interpolation>%s</interpolation>.'</string> % (name, program))
+<function>print</function>(<string>'Hello <interpolation>{name}</interpolation>!This is<interpolation>{program}</interpolation>.'</string>.<function>format</function>(name = name, program = program))
+
+<comment># Loops.</comment>
+
+i = 1
+<keyword>while</keyword> i < 6:
+    <function>print</function>(i)
+i += 1
+
+fruits = [<string>"apple"</string>, <string>"banana"</string>, <string>"cherry"</string>]
+
+<keyword>for</keyword> x <keyword>in</keyword> fruits:
+    <function>print</function>(x)
+<keyword>if</keyword> x == <string>"banana"</string>:
+    <keyword>break</keyword>
+
+<comment># Objetcts.</comment>
+
+<keyword>class</keyword> Person:
+    <keyword>def</keyword> <function>__init__</function>(self, name, age):
+    self.name = name
+self.age = age
+
+<keyword>def</keyword> <function>myfunc</function>(self):
+    <function>print</function>(<string>"Hello my name is "</string> + self.name)
+p1 = <function>Person</function>(<string>"John"</string>, 36)
+p1.<function>myfunc</function>()
+
+<comment>#Random code</comment>
+
+<keyword>import</keyword> sys
+
+<keyword>try</keyword>:
+   <comment># open file stream</comment>
+   file = <function>open</function>(file_name, <string>"w"</string>)
+<keyword>except</keyword> IOError:
+   print <string>"There was an error writing to"</string>, file_name
+   sys.<function>exit</function>()
+print <string>"Enter '"</string>, file_finish,
+print <string>"' When finished"</string>
+<keyword>while</keyword> file_text != file_finish:
+   file_text = <function>raw_input</function>(<string>"Enter text: "</string>)
+   <keyword>if</keyword> file_text == file_finish:
+      <comment># close the file</comment>
+      file.close
+      <keyword>break</keyword>
+   file.<function>write</function>(file_text)
+   file.<function>write</function>(<string>"\n"</string>)
+file.<function>close</function>()
+file_name = <function>raw_input</function>(<string>"Enter filename: "</string>)
+<keyword>if</keyword> <function>len</function>(file_name) == 0:
+   print <string>"Next time please enter something"</string>
+   sys.<function>exit</function>()
+<keyword>try</keyword>:
+   file = <function>open</function>(file_name, <string>"r"</string>)
+<keyword>except</keyword> IOError:
+   print <string>"There was an error reading file"</string>
+   sys.<function>exit</function>()
+file_text = file.<function>read</function>()
+file.<function>close</function>()
+print file_text
