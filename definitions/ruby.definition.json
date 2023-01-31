@@ -1,0 +1,155 @@
+{
+  "$schema": "../node_modules/spliceation-transmutator.typescript/schema.json",
+  "definition": [
+    {
+      "concurrent": [
+        {
+          "match": "([\\\"'])(?:\\\\.|[^])*?\\1|\\%(\\Q?\\{|\\\/)[^]*?(\\}|\\\/)",
+          "class": "string",
+          "multiline": true,
+          "recursion": [
+            {
+              "match": "\\#{[^}]*}|\\#\\$([a-zA-Z_][a-zA-Z0-9_]*)",
+              "class": "interpolation",
+              "multiline": true,
+              "recursion": true
+            }
+          ]
+        },
+        {
+          "match": "\\#(?!\\$|{).*",
+          "class": "comment"
+        },
+        {
+          "match": "=begin[^]*=end",
+          "class": "comment",
+          "multiline": true
+        }
+      ]
+    },
+    {
+      "class": "keyword",
+      "match": [
+        "BEGIN",	
+        "do",
+        "next",	
+        "then",
+        "END",	
+        "else",	
+        "nil",
+        "true",
+        "alias",	
+        "elsif",
+        "not",	
+        "undef",
+        "and",	
+        "end",	
+        "or",	
+        "unless",
+        "begin",	
+        "ensure",	
+        "redo",	
+        "until",
+        "break",
+        "false",	
+        "rescue",	
+        "when",
+        "case",	
+        "for",
+        "retry",	
+        "while",
+        "class",
+        "if",	
+        "return",	
+        "while",
+        "def",	
+        "in",	
+        "self",	
+        "defined?",	
+        "module",	
+        "super",
+        "yield",
+        "new",
+        "__LINE__",
+        "__FILE__",
+        "__ENCODING__"	
+      ]
+    },
+    {
+      "class": "function",
+      "match": [
+        "`",
+        "array",
+        "float",
+        "integer",
+        "string",
+        "at_exit",
+        "autoload",
+        "binding",
+        "caller",
+        "catch",
+        "chop",
+        "chop!",
+        "chomp",
+        "chomp!",
+        "eval",
+        "exec",
+        "exit",
+        "exit!",
+        "fail",
+        "fork",
+        "format",
+        "gets",
+        "global_variables",
+        "gsub",
+        "gsub!",
+        "iterator?",
+        "lambda",
+        "load",
+        "local_variables",
+        "loop",
+        "open",
+        "p",
+        "print",
+        "printf",
+        "proc",
+        "putc",
+        "puts",
+        "raise",
+        "rand",
+        "readline",
+        "readlines",
+        "require",
+        "select",
+        "sleep",
+        "split",
+        "sprintf",
+        "srand",
+        "sub",
+        "sub!",
+        "syscall",
+        "system",
+        "test",
+        "trace_var",
+        "trap",
+        "untrace_var"
+      ]
+    },
+    {
+      "match": "\\$([a-zA-Z_][a-zA-Z0-9_]*)",
+      "class": "variable"
+    },
+    {
+      "match": "\\@\\@?([a-zA-Z_][a-zA-Z0-9_]*)",
+      "class": "variable"
+    },
+    {
+      "match": "\\$([a-zA-Z_][a-zA-Z0-9_]*)",
+      "class": "variable"
+    },
+    {
+      "class": "regexp",
+      "match": "\\\/(?=[^\/*])(?:\\\\.|\\[(?:\\\\.|[^\\\\\\]\\n\\r])*]|[^\\\\\\\/\\n\\r])*\\\/"
+    }
+  ]
+}

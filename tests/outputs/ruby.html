@@ -1,0 +1,94 @@
+<comment>#!/usr/bin/ruby -w</comment>
+<function>require</function> <string>'trig.rb'</string>
+
+<keyword>class</keyword> Sample
+    <keyword>def</keyword> hello
+       <function>puts</function> <string>"Hello Ruby!"</string>
+    <keyword>end</keyword>
+ <keyword>end</keyword>
+
+
+ <variable>$global_variable</variable> = 10
+
+ <keyword>if</keyword> x > 2
+   <function>puts</function> <string>"x is greater than 2"</string>
+<keyword>elsif</keyword> x <= 2 <keyword>and</keyword> x!=0
+   <function>puts</function> <string>"x is 1"</string>
+<keyword>else</keyword>
+   <function>p</function> <string>"I can't guess the number"</string>
+<keyword>end</keyword>
+
+<variable>$debug</variable> = 1
+<function>print</function> <string>"debug\n"</string> <keyword>if</keyword> <variable>$debug</variable>
+
+x = 1 
+<keyword>unless</keyword> x>=2
+   <function>puts</function> <string>"x is less than 2"</string>
+ <keyword>else</keyword>
+   <function>puts</function> <string>"x is greater than 2"</string>
+<keyword>end</keyword>
+ 
+ <keyword>class</keyword> Customer
+   <variable>@@no_of_customers</variable> = 0   <comment># class variable</comment>
+
+    <keyword>def</keyword> initialize(id, name, addr)
+       <variable>@cust_id</variable> = id <comment># instance variable</comment>
+       <variable>@cust_name</variable> = name
+       <variable>@cust_addr</variable> = addr
+    <keyword>end</keyword>
+ 
+ <comment># Now using above class to create objects</comment>
+ object = Sample. <keyword>new</keyword>
+ object.hello
+
+a = <string>"\nThis is a double-quoted string\n"</string>
+a = <string>%Q{\nThis is a double-quoted string\n}</string>
+a = <string>%{\nThis is a double-quoted string\n}</string>
+a = <string>%/\nThis is a double-quoted string\n/</string>
+
+<comment>=begin</comment>
+<comment>This is a comment.</comment>
+<comment>This is a comment, too.</comment>
+<comment>This is a comment, too.</comment>
+<comment>I said that already.</comment>
+<comment>=end</comment>
+
+<comment>#You can also make single-line comments like this</comment>
+
+<keyword>while</keyword> <variable>$i</variable> < <variable>$num</variable>  <keyword>do</keyword>
+   <function>puts</function>(<string>"Inside the loop i = <interpolation>#<variable>$i</variable></interpolation>"</string> )
+   <variable>$i</variable> +=1
+<keyword>end</keyword>
+
+<keyword>begin</keyword>
+   <function>puts</function>(<string>"Inside the loop i = <interpolation>#<variable>$i</variable></interpolation>"</string> )
+   <variable>$i</variable> +=1
+<keyword>end</keyword> <keyword>while</keyword> <variable>$i</variable> < <variable>$num</variable>
+
+<keyword>until</keyword> <variable>$i</variable> > <variable>$num</variable>  <keyword>do</keyword>
+   <function>puts</function>(<string>"Inside the loop i #You can also make single-line comments like this= <interpolation>#<variable>$i</variable></interpolation>"</string> )
+   <variable>$i</variable> +=1;
+<keyword>end</keyword>
+
+<keyword>for</keyword> i <keyword>in</keyword> 0..5
+   <function>puts</function> <string>"Value of local variable is <interpolation>#{i}</interpolation>"</string>
+<keyword>end</keyword>
+
+names = Array.<keyword>new</keyword>(4, <string>"mac"</string>)
+<function>puts</function> <string>"<interpolation>#{names}</interpolation>"</string>
+
+<comment>#RegEx</comment>
+
+<keyword>if</keyword> ( line1 =~ <regexp>/Cats(.*)/</regexp> )
+   <function>sprintf</function> <string>"Line1 contains Cats"</string>
+<keyword>end</keyword>
+<keyword>if</keyword> ( line2 =~ <regexp>/Cats(.*)/</regexp> )
+   <function>puts</function> <string>"Line2 contains  Dogs"</string>
+<keyword>end</keyword>
+
+<keyword>def</keyword> <function>test</function>(&block)
+   block.call
+<keyword>end</keyword>
+<function>test</function> { <function>puts</function> <string>"Hello World!"</string>}
+
+str = <function>sprintf</function>(<string>"%s\n"</string>, <string>"abc"</string>)
