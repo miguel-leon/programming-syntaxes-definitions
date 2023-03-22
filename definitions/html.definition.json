@@ -1,0 +1,35 @@
+{
+  "$schema": "../node_modules/spliceation-transmutator.typescript/schema.json",
+  "definition": [
+    {
+      "concurrent": [
+        {
+          "match": "<\\!--[^]*?-->",
+          "class": "comment",
+          "multiline": true
+        },
+        {
+          "match": "<(?!\\s)[^<>\\n]*>",
+          "class": "tag",
+          "recursion": [
+            {
+              "match": "\\s.*[^<>]",
+              "class": "attribute",
+              "recursion": [
+                {
+                  "match": "([\"'])(?:\\\\.|[^])*?\\1",
+                  "class": "value",
+                  "multiline": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "match": "</.*?>",
+      "class": "tag"
+    }
+  ]
+}
