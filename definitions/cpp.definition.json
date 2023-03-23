@@ -22,7 +22,7 @@
           "multiline": true,
           "recursion": [
             {
-              "match": "\\%\\s*\\d*?(?:c|d|i|E|e|f|o|g|G|u|s|x|X|%|n|p)",
+              "match": "\\%[ \\t]*?\\d*?(?:c|d|i|E|e|f|o|g|G|u|s|x|X|%|n|p)",
               "class": "format",
               "recursion": true
             }
