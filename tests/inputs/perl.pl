@@ -5,7 +5,7 @@
 This is 
 a Multiline 
 comment
-=cut 
+=cut
 
 $var    = "This is string scalar!";
 $quote  = 'I m inside single quote - $var';
