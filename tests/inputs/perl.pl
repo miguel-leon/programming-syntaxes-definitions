@@ -5,11 +5,15 @@
 This is 
 a Multiline 
 comment
-=cut
+=cut 
 
 $var    = "This is string scalar!";
 $quote  = 'I m inside single quote - $var';
 $double = "This is inside single quote - $var";
+$doublebacktics = `This is inside single quote - $var`;
+$q = q^This is inside single quote - $var^;
+$qw = qw/This is inside single quote - $var/;
+$qx = qx^Are you learning Perl String today?"$name asked.^;
 $escape = "This example of escape -\tHello, World!";
 
 $str = "hello" . "world";    # Concatenates strings.
@@ -146,11 +150,13 @@ printf $totalArea;
 
 $string = ~/\S+\s+\S+/;
 
-tr / a - z / A - Z /
+tr / a - z / A - Z /;
+
+qr/(?=[^/*])/;
 
 @lines = $string = ~/^(.*?) /gm;
 
-$string = ~tr / a - z / a - z / s;
+$string = ~tr / a - z / a - z /s;
 
 chomp($_)
 

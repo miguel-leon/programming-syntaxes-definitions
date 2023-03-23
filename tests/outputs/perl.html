@@ -10,6 +10,10 @@
 <variable>$var</variable>    = <string>"This is string scalar!"</string>;
 <variable>$quote</variable>  = <string>'I m inside single quote - $var'</string>;
 <variable>$double</variable> = <string>"This is inside single quote - <interpolation><variable>$var</variable></interpolation>"</string>;
+<variable>$doublebacktics</variable> = <string>`This is inside single quote - <interpolation><variable>$var</variable></interpolation>`</string>;
+<variable>$q</variable> = <string>q^This is inside single quote - $var^</string>;
+<variable>$qw</variable> = <string>qw/This is inside single quote - $var/</string>;
+<variable>$qx</variable> = <string>qx^Are you learning Perl String today?"<interpolation><variable>$name</variable></interpolation> asked.^</string>;
 <variable>$escape</variable> = <string>"This example of escape -\tHello, World!"</string>;
 
 <variable>$str</variable> = <string>"hello"</string> . <string>"world"</string>;    <comment># Concatenates strings.</comment>
@@ -134,7 +138,7 @@ my <variable>@values</variable> = <function>values</function> <variable>%ENV</va
 <variable>$datestring</variable> = strftime <string>"<interpolation><variable>%a</variable></interpolation> <interpolation><variable>%b</variable></interpolation> <interpolation><variable>%e</variable></interpolation> <interpolation><variable>%H</variable></interpolation>:<interpolation><variable>%M</variable></interpolation>:<interpolation><variable>%S</variable></interpolation> <interpolation><variable>%Y</variable></interpolation>"</string>, <function>localtime</function>;
 <function>printf</function>(<string>"date and time - <interpolation><variable>$datestring</variable></interpolation>\n"</string>);
 
-<function>open</function>( DATA, <string>"file.txt"</string> ) <keyword>or</keyword> <keyword>die</keyword> <string>"Couldn't open file file.txt, <interpolation><variable>$!</variable></interpolation>"</string>;
+<function>open</function>( DATA, <string>"file.txt"</string> ) <keyword>or</keyword> <keyword>die</keyword> <string>"Couldn't open file file.txt, $!"</string>;
 
 <keyword>while</keyword> (<DATA>) {
     <function>print</function> <string>"<interpolation><variable>$_</variable></interpolation>"</string>;
@@ -146,11 +150,13 @@ my <variable>@values</variable> = <function>values</function> <variable>%ENV</va
 
 <variable>$string</variable> = ~<regexp>/\S+\s+\S+/</regexp>;
 
-<keyword>tr</keyword> <regexp>/ a - z / A - Z /</regexp>
+<keyword>tr</keyword> <regexp>/ a - z / A - Z /</regexp>;
 
-<variable>@lines</variable> = <variable>$string</variable> = ~<regexp>/^(.*?) /</regexp>gm;
+<regexp>qr/(?=[^/*])/</regexp>;
 
-<variable>$string</variable> = ~<keyword>tr</keyword> <regexp>/ a - z / a - z /</regexp> s;
+<variable>@lines</variable> = <variable>$string</variable> = ~<regexp>/^(.*?) /gm</regexp>;
+
+<variable>$string</variable> = ~<keyword>tr</keyword> <regexp>/ a - z / a - z /s</regexp>;
 
 <function>chomp</function>(<variable>$_</variable>)
 

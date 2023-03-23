@@ -8,7 +8,7 @@
           "class": "comment"
         },
         {
-          "match": "=begin[^]*=cut",
+          "match": "=begin[^]*?=cut",
           "class": "comment",
           "multiline": true
         },
@@ -18,17 +18,30 @@
           "multiline": true
         },
         {
-          "match": "q(?:w|x|q|r)?([\\\/])(?:\\\\.|[^])*?\\1",
-          "class": "string",
-          "multiline": true
-        },
-        {
-          "match": "([\"])(?:\\\\.|[^])*?\\1",
+          "match": "([\\\"]|[\\`])(?:\\\\.|[^])*?\\1",
           "class": "string",
           "multiline": true,
           "recursion": [
             {
-              "match": "(?:\\$|\\@|\\%)(?:([a-zA-Z_][a-zA-Z0-9_]*)|.)",
+              "match": "(?:\\$|\\@|\\%)(?:[a-zA-Z_][a-zA-Z0-9_]*)",
+              "class": "interpolation",
+              "multiline": true,
+              "recursion": true
+            }
+          ]
+        },
+        {
+          "match": "q(?:w)?([\\\/]|[\\^])(?:\\\\.|[^])*?\\1",
+          "class": "string",
+          "multiline": true
+        },
+        {
+          "match": "q(?:x|q)?([\\\/]|[\\^])(?:\\\\.|[^])*?\\1",
+          "class": "string",
+          "multiline": true,
+          "recursion": [
+            {
+              "match": "(?:\\$|\\@|\\%)(?:[a-zA-Z_][a-zA-Z0-9_]*)",
               "class": "interpolation",
               "multiline": true,
               "recursion": true
@@ -93,7 +106,7 @@
       ]
     },
     {
-      "match": "(?:\\$|\\@|\\%)(?:([a-zA-Z_][a-zA-Z0-9_]*)|.)",
+      "match": "(?:\\$|\\@|\\%)(?:[a-zA-Z_][a-zA-Z0-9_]*)",
       "class": "variable"
     },  
     {
@@ -270,7 +283,7 @@
       "tell",
       "telldir",
       "tie",
-      "time(?:s)?",
+      "times?",
       "truncate",
       "umask",
       "undef",
@@ -290,7 +303,11 @@
     },
     {
       "class": "regexp",
-      "match": "\\\/(?=[^\\\/*])(?:\\\\.|\\[(?:\\\\.|[^]\\n\\r])*]|[^\\n\\r])*\\\/"
+      "match": "qr([\\\/])(?:\\\\.|[^]*)\\1"
+    },
+    {
+      "class": "regexp",
+      "match": "\\\/(?=[^\\\/*])(?:\\\\.|\\[(?:\\\\.|[^]\\n\\r])*]|[^\\n\\r])*\\\/(?:d)?(?:g)?(?:i)?(?:m)?(?:s)?(?:u)?(?:y)?"
     }
   ]
 }
