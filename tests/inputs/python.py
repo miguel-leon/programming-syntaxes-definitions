@@ -38,9 +38,9 @@ sys.stdout.write(x + "\n")
 
 name = "World"
 program = "Python"
-print(f 'Hello {name}! This is {program}')
-print("%s %s" % ('Hello', 'World', ))
-print('Hello %s! This is %s.' % (name, program))
+print(f'Hello {name}! This is {program}')
+print("%s %s" %('Hello', 'World', ))
+print('Hello %s! This is %s.' %(name, program))
 print('Hello {name}!This is{program}.'.format(name = name, program = program))
 
 # Loops.

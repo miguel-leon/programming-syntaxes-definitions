@@ -38,10 +38,10 @@ sys.stdout.<function>write</function>(x + <string>"\n"</string>)
 
 name = <string>"World"</string>
 program = <string>"Python"</string>
-<function>print</function>(f <string>'Hello <interpolation>{name}</interpolation>! This is <interpolation>{program}</interpolation>'</string>)
-<function>print</function>(<string>"<interpolation>%s</interpolation> <interpolation>%s</interpolation>"</string> % (<string>'Hello'</string>, <string>'World'</string>, ))
-<function>print</function>(<string>'Hello <interpolation>%s</interpolation>! This is <interpolation>%s</interpolation>.'</string> % (name, program))
-<function>print</function>(<string>'Hello <interpolation>{name}</interpolation>!This is<interpolation>{program}</interpolation>.'</string>.<function>format</function>(name = name, program = program))
+<function>print</function>(<string>f'Hello <interpolation>{name}</interpolation>! This is <interpolation>{program}</interpolation>'</string>)
+<function>print</function>(<string>"<format>%s</format> <format>%s</format>"</string> %(<string>'Hello'</string>, <string>'World'</string>, ))
+<function>print</function>(<string>'Hello <format>%s</format>! This is <format>%s</format>.'</string> %(name, program))
+<function>print</function>(<string>'Hello {name}!This is{program}.'</string>.<function>format</function>(name = name, program = program))
 
 <comment># Loops.</comment>
 
