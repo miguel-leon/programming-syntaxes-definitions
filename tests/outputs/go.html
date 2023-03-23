@@ -16,10 +16,10 @@
         fmt.<function>Println</function>(<string>"Wednesday"</string>)
     }
 
-    <keyword>func</keyword> <function>f0</function>() <datatype>float64</datatype> {
+    <keyword>func</keyword> <function>f0</function>() <type>float64</type> {
       <keyword>return</keyword> 1
     }
-    <keyword>func</keyword> <function>f1</function>()(<datatype>float64</datatype>, <datatype>float64</datatype>) {
+    <keyword>func</keyword> <function>f1</function>()(<type>float64</type>, <type>float64</type>) {
       <keyword>return</keyword> 1, 2
     }
 
@@ -35,7 +35,7 @@
     _ = <function>complex</function>(T {}.<function>m</function>())
     <function>f2</function>(<function>I</function>(T {}).<function>m</function>())
 
-    <keyword>var</keyword> student1 <datatype>string</datatype>
+    <keyword>var</keyword> student1 <type>string</type>
     student = <string>"John"</string>
     fmt.<function>Println</function>(student1)
 
@@ -49,45 +49,45 @@
       fmt.<function>Println</function>(num, <string>"has multiple digits"</string>)
     }
 
-    <keyword>var</keyword> a = <keyword>map</keyword>[<datatype>string</datatype>] <datatype>string</datatype> {
+    <keyword>var</keyword> a = <keyword>map</keyword>[<type>string</type>] <type>string</type> {
       <string>"brand"</string>: <string>"Ford"</string>,
       <string>"model"</string>: <string>"Mustang"</string>,
       <string>"year"</string>: <string>"1964"</string>
     }
 
-    b: = <keyword>map</keyword>[<datatype>string</datatype>] <datatype>int</datatype> {
+    b: = <keyword>map</keyword>[<type>string</type>] <type>int</type> {
       <string>"Oslo"</string>: 1,
       <string>"Bergen"</string>: 2,
       <string>"Trondheim"</string>: 3,
       <string>"Stavanger"</string>: 4
     }
 
-      fmt.<function>Printf</function>(<string>"a\t<interpolation>%v</interpolation>\n"</string>, a)
-    fmt.<function>Printf</function>(<string>"b\t<interpolation>%d</interpolation>\n"</string>, b)
+      fmt.<function>Printf</function>(<string>"a\t<format>%v</format>\n"</string>, a)
+    fmt.<function>Printf</function>(<string>"b\t<format>%d</format>\n"</string>, b)
 
     <function>type</function>(
       T1 <keyword>struct</keyword> {
-        v <datatype>uint64</datatype>
+        v <type>uint64</type>
       }
 
       T2 <keyword>struct</keyword> {
-        _ <datatype>int16</datatype>
+        _ <type>int16</type>
         x T1
         y * T1
       }
 
       T3 <keyword>struct</keyword> {
-        _ <datatype>int16</datatype>
-        x[6] <datatype>int64</datatype>
-        y * [6] <datatype>int64</datatype>
+        _ <type>int16</type>
+        x[6] <type>int64</type>
+        y * [6] <type>int64</type>
       }
     )
 
-    adj: = [2] <datatype>string</datatype> {
+    adj: = [2] <type>string</type> {
       <string>"big"</string>, <string>"tasty"</string>
     }
 
-    fruits: = [3] <datatype>string</datatype> {
+    fruits: = [3] <type>string</type> {
       <string>"apple"</string>, <string>"orange"</string>, <string>"banana"</string>
     }
 
@@ -98,16 +98,16 @@
           <keyword>break</keyword>
         }
 
-        <keyword>var</keyword> a <datatype>int64</datatype> <comment>// a is safe</comment>
+        <keyword>var</keyword> a <type>int64</type> <comment>// a is safe</comment>
         <keyword>var</keyword> b T1 <comment>// b.v is safe</comment>
-        <keyword>var</keyword> c[6] <datatype>int64</datatype> <comment>// c[0] is safe</comment>
+        <keyword>var</keyword> c[6] <type>int64</type> <comment>// c[0] is safe</comment>
 
         <keyword>var</keyword> d T2 <comment>// d.x.v is unsafe</comment>
         <keyword>var</keyword> e T3 <comment>// e.x[0] is unsafe</comment>
 
         <keyword>func</keyword> <function>f</function>() {
-          <keyword>var</keyword> f <datatype>int64</datatype> <comment>// f is safe</comment>
-          <keyword>var</keyword> g = [] <datatype>int64</datatype> {
+          <keyword>var</keyword> f <type>int64</type> <comment>// f is safe</comment>
+          <keyword>var</keyword> g = [] <type>int64</type> {
               5: 0
             } <comment>// g[0] is safe</comment>
 
@@ -116,7 +116,7 @@
           <comment>// Here, d.y.v and e.y[0] are both safe,</comment>
           <comment>// for *d.y and *e.y are both allocated.</comment>
           d.y = <function>new</function>(T1)
-          e.y = & [6] <datatype>int64</datatype> {}
+          e.y = & [6] <type>int64</type> {}
 
           _, _, _ = f, g, h
         }
