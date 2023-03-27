@@ -1,0 +1,123 @@
+<identifier>@import "navigation.css"</identifier>;
+
+* <declaration>{</declaration>
+<declaration>	<property>text-align</property>:<value>center</value>;</declaration>
+<declaration>	<property>color</property>:<value>blue</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>:root</selector> <declaration>{</declaration>
+<declaration>	--blue:<value> #1e90ff</value>;</declaration>
+<declaration>	--white:<value> #ffffff</value>;</declaration>
+<declaration>	--value:<value> 20px</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>body</selector> <declaration>{</declaration>
+<declaration>	<property>background-color</property>:<value> lightblue</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>h1</selector> <declaration>{</declaration>
+<declaration>	<property>color</property>:<value>white</value>;</declaration>
+<declaration>	<property>text-align</property>:<value>center</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>p</selector> <declaration>{</declaration>
+<declaration>	<property>font-family</property>:<value>verdana</value>;</declaration>
+<declaration>	<property>font-size</property>:<value>20%</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>#para1</selector> <declaration>{</declaration>
+<declaration>	<property>text-align</property>:<value>center</value>;</declaration>
+<declaration>	<property>color</property>:<value>red</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>p</selector><selector>.center</selector> <declaration>{</declaration>
+<declaration>	<property>text-align</property>:<value> center</value>;</declaration>
+<declaration>	<property>color</property>:<value>red</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>.pagination</selector> <selector>a</selector> <declaration>{</declaration>
+<declaration>	<property>font-size</property>:<value> 22px</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>h1</selector>,
+<selector>h2</selector>,
+<selector>p</selector> <declaration>{</declaration>
+<declaration>	<property>text-align</property>:<value>center</value>;</declaration>
+<declaration>	<property>color</property>:<value> red</value>;</declaration>
+<declaration>	<property>margin-left</property>:<value>40px</value>;</declaration>
+<declaration>}</declaration>
+
+<comment>/* This is a single-line comment */</comment>
+<comment>/* This is a </comment>
+<comment>multi-line comment */</comment>
+<selector>h4</selector> <declaration>{</declaration>
+<declaration>	<property>background-color</property>:<value><function>rgb</function>(255, 99, 71)</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>h3</selector> <declaration>{</declaration>
+<declaration>	<property>border</property>:<value>2px dotted Tomato</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>.proof</selector> <declaration>{</declaration>
+<declaration>	<property>background-image</property>:<value><function>url</function>(<string>"img_tree.png"</string>)</value>;</declaration>
+<declaration>	<property>background-repeat</property>:<value>no-repeat</value>;</declaration>
+<declaration>	<property>background-position</property>:<value>right top</value>;</declaration>
+<declaration>	<property>background-attachment</property>:<value>fixed</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>div</selector> <declaration>{</declaration>
+<declaration>	<property>width</property>:<value>300rem</value>;</declaration>
+<declaration>	<property>padding</property>:<value>25em</value>;</declaration>
+<declaration>	<property>box-sizing</property>:<value>border-box</value>;</declaration>
+<declaration>}</declaration>
+
+<identifier>@media screen and <rule>(min-width: 480px)</rule> </identifier><declaration>{</declaration>
+<declaration>	body {</declaration>
+<declaration>		<property>background-color</property>:<value>lightgreen</value>;</declaration>
+<declaration>	}</declaration>
+<declaration>}</declaration>
+
+<selector>div</selector> <declaration>{</declaration>
+<declaration>	<property>resize</property>:<value>both</value>;</declaration>
+<declaration>	<property>overflow</property>:<value>auto</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>button</selector> <declaration>{</declaration>
+<declaration>	<property>background-color</property>:<value><function>var</function>(--white)</value>;</declaration>
+<declaration>	<property>color</property>:<value><function>var</function>(--blue)</value>;</declaration>
+<declaration>	<property>border</property>:<value><function>var</function>(--value)</value>;</declaration>
+<declaration>	<property>padding</property>:<value>5px 25px 4rem</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>#div1</selector> <declaration>{</declaration>
+<declaration>	<property>position</property>:<value>absolute</value>;</declaration>
+<declaration>	<property>left</property>:<value>50px</value>;</declaration>
+<declaration>	<property>width</property>:<value><function>calc</function>(100% - 100px)</value>;</declaration>
+<declaration>	<property>border</property>:<value>1px solid black</value>;</declaration>
+<declaration>	<property>background-color</property>:<value>yellow</value>;</declaration>
+<declaration>	<property>padding</property>:<value>5px</value>;</declaration>
+<declaration>	<property>text-align</property>:<value>center</value>;</declaration>
+<declaration>	<property>background-image</property>:<value><function>url</function>(<string>'Unit.jpg'</string>)</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>li</selector><selector>:first-child</selector> <declaration>{</declaration>
+<declaration>	<property>background</property>:<value>yellow</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>div</selector><selector>:nth-child(2)</selector> <declaration>{</declaration>
+<declaration>	<property>background</property>:<value>red</value>;</declaration>
+<declaration>}</declaration>
+
+<selector>div</selector>[class^="test"] <declaration>{</declaration>
+<declaration>	<property>background</property>:<value> #ffff00</value>;</declaration>
+<declaration>}</declaration>
+
+<identifier>@keyframes mymove </identifier><declaration>{</declaration>
+<declaration>	from {</declaration>
+<declaration>		<property>top</property>:<value> 0px</value>;</declaration>
+<declaration>	}</declaration>
+
+<declaration>	to {</declaration>
+<declaration>		<property>top</property>:<value> 200px</value>;</declaration>
+<declaration>	}</declaration>
+<declaration>}</declaration>
