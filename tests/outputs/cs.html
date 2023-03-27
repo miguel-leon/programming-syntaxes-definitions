@@ -1,6 +1,6 @@
 <keyword>using</keyword> System.IO; <comment>// include the System.IO namespace</comment>
 
-<keyword>File</keyword>.<function>SomeFileMethod</function>(); <comment>// use the file class with methods</comment>
+<keyword>File</keyword>.SomeFileMethod(); <comment>// use the file class with methods</comment>
 
 <keyword>int</keyword> myNum = 5; <comment>// Integer (whole number)</comment>
 <keyword>double</keyword> myDoubleNum = 5.99 D; <comment>// Floating point number</comment>
@@ -14,24 +14,24 @@
 <keyword>string</keyword> firstName = <string>"John "</string>;
 <keyword>string</keyword> lastName = <string>"Doe"</string>;
 <keyword>string</keyword> name = firstName + lastName;
-Console.<function>WriteLine</function>(name);
+Console.WriteLine(name);
 
-<keyword>string</keyword> name = $<string>"My full name is: {firstName} {lastName}"</string>;
-Console.<function>WriteLine</function>(name);
+<keyword>string</keyword> name = <string>$"My full name is: <interpolation>{firstName}</interpolation> <interpolation>{lastName}</interpolation>"</string>;
+Console.WriteLine(name);
 
 <keyword>int</keyword> i = 0;
 <keyword>do</keyword> {
 
-  Console.<function>WriteLine</function>(i);
+  Console.WriteLine(i);
   i++;
 
 } <keyword>while</keyword> (i < 5);
 
-<keyword>for</keyword> (<keyword>int</keyword> i = 0; i < numbers.<function>GetLength</function>(0); i++) { <comment>// Outer loop</comment>
+<keyword>for</keyword> (<keyword>int</keyword> i = 0; i < numbers.GetLength(0); i++) { <comment>// Outer loop</comment>
   
-    <keyword>for</keyword> (<keyword>int</keyword> j = 0; j < numbers.<function>GetLength</function>(1); j++) { <comment>// Inner loop</comment>
+    <keyword>for</keyword> (<keyword>int</keyword> j = 0; j < numbers.GetLength(1); j++) { <comment>// Inner loop</comment>
         
-        Console.<function>WriteLine</function>(numbers[i, j]);
+        Console.WriteLine(numbers[i, j]);
     
     }
 
@@ -40,31 +40,31 @@ Console.<function>WriteLine</function>(name);
 <keyword>int</keyword> time = 22;
 <keyword>if</keyword> (time < 10) {
     
-  Console.<function>WriteLine</function>(<string>"Good morning."</string>);
+  Console.WriteLine(<string>"Good morning."</string>);
 
 } <keyword>else</keyword> 
 <keyword>if</keyword> (time < 20) {
 
-  Console.<function>WriteLine</function>(<string>"Good day."</string>);
+  Console.WriteLine(<string>"Good day."</string>);
 
 } <keyword>else</keyword> {
 
-  Console.<function>WriteLine</function>(<string>"Good evening."</string>);
+  Console.WriteLine(<string>"Good evening."</string>);
 }
 <comment>// Outputs "Good evening."</comment>
 
-<keyword>static</keyword> <keyword>void</keyword> <function>MyMethod</function>(<keyword>string</keyword> country = <string>"Norway"</string>) {
+<keyword>static</keyword> <keyword>void</keyword> MyMethod(<keyword>string</keyword> country = <string>"Norway"</string>) {
 
-  Console.<function>WriteLine</function>(country);
+  Console.WriteLine(country);
 
 }
 
-<keyword>static</keyword> <keyword>void</keyword> <function>Main</function>(<keyword>string</keyword>[] <keyword>args</keyword>) {
+<keyword>static</keyword> <keyword>void</keyword> Main(<keyword>string</keyword>[] <keyword>args</keyword>) {
 
-  <function>MyMethod</function>(<string>"Sweden"</string>);
-  <function>MyMethod</function>(<string>"India"</string>);
-  <function>MyMethod</function>();
-  <function>MyMethod</function>(<string>"USA"</string>);
+  MyMethod(<string>"Sweden"</string>);
+  MyMethod(<string>"India"</string>);
+  MyMethod();
+  MyMethod(<string>"USA"</string>);
 
 }
 
@@ -75,7 +75,7 @@ Console.<function>WriteLine</function>(name);
   <keyword>public</keyword> <keyword>int</keyword> year;
 
   <comment>// Create a class constructor with multiple parameters</comment>
-  <keyword>public</keyword> <function>Car</function>(<keyword>string</keyword> modelName, <keyword>string</keyword> modelColor, <keyword>int</keyword> modelYear) {
+  <keyword>public</keyword> Car(<keyword>string</keyword> modelName, <keyword>string</keyword> modelColor, <keyword>int</keyword> modelYear) {
 
     model = modelName;
     color = modelColor;
@@ -83,32 +83,32 @@ Console.<function>WriteLine</function>(name);
 
   }
 
-  <keyword>static</keyword> <keyword>void</keyword> <function>Main</function>(<keyword>string</keyword>[] <keyword>args</keyword>) {
+  <keyword>static</keyword> <keyword>void</keyword> Main(<keyword>string</keyword>[] <keyword>args</keyword>) {
 
-    Car Ford = <keyword>new</keyword> <function>Car</function>(<string>"Mustang"</string>, <string>"Red"</string>, 1969);
-    Console.<function>WriteLine</function>(Ford.color + <string>" "</string> + Ford.year + <string>" "</string> + Ford.model);
+    Car Ford = <keyword>new</keyword> Car(<string>"Mustang"</string>, <string>"Red"</string>, 1969);
+    Console.WriteLine(Ford.color + <string>" "</string> + Ford.year + <string>" "</string> + Ford.model);
   }
 
 }
 
 <comment>// Sort a string</comment>
 <keyword>string</keyword>[] cars = {<string>"Volvo"</string>,<string>"BMW"</string>,<string>"Ford"</string>,<string>"Mazda"</string>};
-Array.<function>Sort</function>(cars);
+Array.Sort(cars);
 <keyword>foreach</keyword>(<keyword>string</keyword> i <keyword>in</keyword> cars) {
-  Console.<function>WriteLine</function>(i);
+  Console.WriteLine(i);
 }
 
 <keyword>using</keyword> System;
 
 <keyword>public</keyword> <keyword>class</keyword> Example {
 
-  <keyword>public</keyword> <keyword>static</keyword> <keyword>void</keyword> <function>Main</function>() {
+  <keyword>public</keyword> <keyword>static</keyword> <keyword>void</keyword> Main() {
         <keyword>double</keyword>[] hours = {.08333,.16667,.25,.33333,.5,.66667,1,2,29,30,31,90,365};
-        DateTime dateValue = <keyword>new</keyword> <function>DateTime</function>(2009, 3, 1, 12, 0, 0);
+        DateTime dateValue = <keyword>new</keyword> DateTime(2009, 3, 1, 12, 0, 0);
 
         <keyword>foreach</keyword>(<keyword>double</keyword> hour <keyword>in</keyword> hours)
-        Console.<function>WriteLine</function>(<string>"{0} + {1} hour(s) = {2}"</string>, dateValue, hour,
-        dateValue.<function>AddHours</function>(hour));
+        Console.WriteLine(<string>"{0} + {1} hour(s) = {2}"</string>, dateValue, hour,
+        dateValue.AddHours(hour));
   }
 
 }
