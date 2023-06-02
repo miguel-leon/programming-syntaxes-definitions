@@ -1,0 +1,119 @@
+<string>`First <interpolation>${ <string>`</string></interpolation></string>
+<string><interpolation><string>some</string></interpolation></string>
+<string><interpolation><string>`</string> </interpolation></string>
+<string><interpolation>}</interpolation> complex <interpolation>${ <string>`nested <interpolation>${ { <string>'string'</string>: {} } }</interpolation>`</string> }</interpolation> tests`</string>;
+
+<string>'string with // comment syntax inside'</string>;
+<comment>// comment with "string syntax inside"</comment>
+
+<string>"Then \\\\\"the 'rest'\""</string>;
+<string>'is "taken" from \\\'https://en.wikipedia.org/wiki/JavaScript\'\\'</string>;
+
+<string>`\</string>
+<string>`</string>;
+
+<string>`\`</string>
+<string>`</string>;
+
+
+<comment>/* Finds the lowest common multiple (LCM) of two numbers */</comment>
+<keyword>function</keyword> LCMCalculator(x, y) { <comment>// constructor function</comment>
+	<keyword>const</keyword> checkInt = <keyword>function</keyword>(x) { <comment>// inner function</comment>
+		<keyword>if</keyword> (x % 1 !== 0)
+			<keyword>throw</keyword> <keyword>new</keyword> TypeError(x + <string>"is not an integer"</string>); <comment>// var a =  mouseX</comment>
+
+		<keyword>return</keyword> x;
+	};
+
+	<keyword>this</keyword>.a = checkInt(x)
+	<comment>//   semicolons   ^^^^  are optional, a newline is enough</comment>
+	<keyword>this</keyword>.b = checkInt(y);
+}
+<comment>// The prototype of object instances created by a constructor is</comment>
+<comment>// that constructor's "prototype" property.</comment>
+LCMCalculator.prototype = { <comment>// object literal</comment>
+	constructor: LCMCalculator, <comment>// when reassigning a prototype, set the constructor property appropriately</comment>
+	gcd: <keyword>function</keyword>() { <comment>// method that calculates the greatest common divisor</comment>
+		<comment>// Euclidean algorithm:</comment>
+		<keyword>let</keyword> a = Math.abs(<keyword>this</keyword>.a), b = Math.abs(<keyword>this</keyword>.b), t;
+
+		<keyword>if</keyword> (a < b) {
+			<comment>// swap variables</comment>
+			<comment>// t = b; b = a; a = t;</comment>
+			[a, b] = [b, a]; <comment>// swap using destructuring assignment (ES6)</comment>
+		}
+
+		<keyword>while</keyword> (b !== 0) {
+			t = b;
+			b = a % b;
+			a = t;
+		}
+
+		<comment>// Only need to calculate GCD once, so "redefine" this method.</comment>
+		<comment>// (Actually not redefinition—it's defined on the instance itself,</comment>
+		<comment>// so that this.gcd refers to this "redefinition" instead of LCMCalculator.prototype.gcd.</comment>
+		<comment>// Note that this leads to a wrong result if the LCMCalculator object members "a" and/or "b" are altered afterwards.)</comment>
+		<comment>// Also, 'gcd' === "gcd", this['gcd'] === this.gcd</comment>
+		<keyword>this</keyword>[<string>'gcd'</string>] = <keyword>function</keyword>() {
+			<keyword>return</keyword> a;
+		};
+
+		<keyword>return</keyword> a;
+	},
+
+	<comment>// Object property names can be specified by strings delimited by double (") or single (') quotes.</comment>
+	<string>"lcm"</string>: <keyword>function</keyword>() {
+		<comment>// Variable names do not collide with object properties, e.g., |lcm| is not |this.lcm|.</comment>
+		<comment>// not using |this.a*this.b| to avoid FP precision issues</comment>
+		<keyword>let</keyword> lcm = <keyword>this</keyword>.a / <keyword>this</keyword>.gcd() * <keyword>this</keyword>.b;
+
+		<comment>// Only need to calculate lcm once, so "redefine" this method.</comment>
+		<keyword>this</keyword>.lcm = <keyword>function</keyword>() {
+			<keyword>return</keyword> lcm;
+		};
+
+		<keyword>return</keyword> lcm;
+	},
+
+	<comment>// Methods can also be declared using es6 syntax</comment>
+	toString() {
+		<comment>// Using both es6 template literals and the (+) operator to concatenate values</comment>
+		<keyword>return</keyword> <string>`LCMCalculator: a = <interpolation>${<keyword>this</keyword>.a}</interpolation>, b = `</string> + <keyword>this</keyword>.b;
+	}
+};
+
+<comment>// Define generic output function; this implementation only works for Web browsers</comment>
+<keyword>function</keyword> output(x) {
+	document.body.appendChild(document.createTextNode(x));
+	document.body.appendChild(document.createElement(<string>'br'</string>));
+}
+
+<comment>// Note: Array's map() and forEach() are defined in JavaScript 1.6.</comment>
+<comment>// They are used here to demonstrate JavaScript's inherent functional nature.</comment>
+[
+	[25, 55],
+	[21, 56],
+	[22, 58],
+	[28, 56]
+].map(<keyword>function</keyword>(pair) { <comment>// array literal + mapping function</comment>
+	<keyword>return</keyword> <keyword>new</keyword> LCMCalculator(pair[0], pair[1]);
+}).sort((a, b) => a.lcm() - b.lcm()) <comment>// sort with this comparative function; => is a shorthand form of a function, called "arrow function"</comment>
+	.forEach(printResult);
+
+<keyword>function</keyword> printResult(obj) {
+	output(obj + <string>", gcd = "</string> + obj.gcd() + <string>", lcm = "</string> + obj.lcm());
+}
+
+<comment>// Regular expressions.</comment>
+
+<keyword>const</keyword> re = <regexp>/^(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}$/</regexp>;
+
+<keyword>const</keyword> escaped = <regexp>/\\\\/</regexp>, flaggy = <regexp>/(?:)/dgimsuy</regexp>;
+
+<keyword>const</keyword> withStringSyntax = <regexp>/"hola"/</regexp>;
+
+<keyword>const</keyword> withCommentSyntax = <regexp>/\/*hola*/</regexp>;
+
+<keyword>const</keyword> itsNaN = 5*<regexp>/asd/</regexp>;
+
+<regexp>/\/(?=[^/*]).*?(?<!\\)(?:\\\\)*\//g</regexp>;
