@@ -11,10 +11,14 @@ describe('Language definitions', () => {
 	const inputs = readdirSync(resolve(__dirname, inputsDir));
 
 	test.each(
-		inputs.map(input => [
-			input.replace(extname(input), ''),
-			input
-		])
+		inputs.map(
+			input => [
+				input.replace(extname(input), ''),
+				input
+			]
+		).filter(
+			([name]) => name.match(/^/)
+		)
 	)('Transmuted output for language: %s.', async (language, inputFile) => {
 		const transmutation = new Transmutation(
 			Transmutation.fromJSON(await import(`../definitions/${ language }.definition.json`))
