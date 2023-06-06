@@ -35,5 +35,7 @@ describe('Language definitions', () => {
 });
 
 function transmuter(_class: string, content: string) {
-	return `<${ _class }>${ content }</${ _class }>`;
+	return _class ?
+		`<${ _class }>${ content }</${ _class }>` :
+		content;
 }
