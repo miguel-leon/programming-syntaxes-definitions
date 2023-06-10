@@ -4,32 +4,52 @@
     {
       "concurrent": [
         {
-          "match": "<\\!--[^]*?-->",
+          "match": "<!--[^]*?-->",
           "class": "comment",
           "multiline": true
         },
         {
-          "match": "<(?!\\s)[^<>\\n]*>",
-          "class": "tag",
+          "match": "<[a-zA-Z][a-zA-Z0-9-]*(?:\"[^\"]*\"|'[^']*'|[^>])*>",
+          "class": "",
           "recursion": [
             {
-              "match": "\\s.*[^<>]",
-              "class": "attribute",
-              "recursion": [
+              "match": "^<",
+              "class": ""
+            },
+            {
+              "match": "^[a-zA-Z][a-zA-Z0-9-]*",
+              "class": "tag"
+            },
+            {
+              "concurrent": [
                 {
-                  "match": "([\"'])(?:\\\\.|[^])*?\\1",
+                  "match": "[^\\s\\x00\"'<>/=]+",
+                  "class": "attribute"
+                },
+                {
+                  "match": "=[\\s\\n\\r]*(?:\"[^\"]*\"|'[^']*'|[a-zA-Z0-9-._:]+)",
                   "class": "value",
                   "multiline": true
                 }
               ]
             }
           ]
+        },
+        {
+          "match": "</[a-zA-Z][^>]*>",
+          "class": "",
+          "recursion": [
+            {
+              "match": "^</",
+              "class": ""
+            },
+            {
+              "match": "^[a-zA-Z][a-zA-Z0-9-]*",
+              "class": "tag"
+            }
+          ]
         }
       ]
-    },
-    {
-      "match": "</.*?>",
-      "class": "tag"
     }
   ]
 }
