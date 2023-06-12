@@ -16,7 +16,7 @@
             },
             {
               "match": "^[a-zA-Z_][a-zA-Z0-9-_.]*",
-              "class": "tag"
+              "class": "tag-name"
             },
             {
               "concurrent": [
@@ -41,7 +41,7 @@
             },
             {
               "match": "^[a-zA-Z_][a-zA-Z0-9-_.]*",
-              "class": "tag"
+              "class": "tag-name"
             }
           ]
         }
