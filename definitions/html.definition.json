@@ -10,6 +10,8 @@
         },
         {
           "match": "<[a-zA-Z_](?:\"[^\"]*\"|'[^']*'|[^>])*>",
+          "class": "tag",
+          "multiline": true,
           "recursion": [
             {
               "match": "^<"
@@ -35,6 +37,8 @@
         },
         {
           "match": "</[a-zA-Z_][^>]*>",
+          "class": "tag",
+          "multiline": true,
           "recursion": [
             {
               "match": "^</"
