@@ -27,7 +27,7 @@
                   "class": "attribute"
                 },
                 {
-                  "match": "=[\\s\\n\\r]*(?:\"[^\"]*\"|'[^']*'|[a-zA-Z0-9-._:]+)",
+                  "match": "=\\s*(?:\"[^\"]*\"|'[^']*'|[a-zA-Z0-9-._:]+)",
                   "class": "value",
                   "multiline": true
                 }
