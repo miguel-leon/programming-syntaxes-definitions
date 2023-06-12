@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<tag><!DOCTYPE html></tag>
 <tag><<tag-name>html</tag-name>></tag>
   <tag><<tag-name>head</tag-name>></tag>
     <tag><<tag-name>title</tag-name>></tag>Page Title<tag></<tag-name>title</tag-name>></tag>
@@ -78,7 +78,8 @@
   <tag></<tag-name>body</tag-name>></tag>
 <tag></<tag-name>html</tag-name>></tag>
 
-<!DOCTYPE html>
+<tag><!doctype</tag>
+<tag>html></tag>
 <tag><<tag-name>html</tag-name> <attribute>lang</attribute><value>="en"</value>></tag>
 <tag><<tag-name>head</tag-name>></tag>
 	<tag><<tag-name>meta</tag-name> <attribute>charset</attribute><value>="UTF-8"</value>/></tag>
@@ -113,8 +114,9 @@
 <tag><<tag-name>input</tag-name> <attribute>name</attribute><value>="'mixin 2'"</value>></tag>
 <tag><<tag-name>input</tag-name> <attribute>name</attribute><value>=Xtreme_C4se-but:still.a.valid:attribute</value>></tag>
 <tag><<tag-name>_custom-tag_with.additional_symbols</tag-name> <attribute>custom-attr</attribute><value>=foo:bar</value>></tag><tag></<tag-name>_custom-tag_with.additional_symbols</tag-name>></tag>
-<tag><<tag-name>div</tag-name>></tag>
-	free text content
+<tag><<tag-name>div</tag-name> <attribute>aria-label</attribute><value>="<!-- not a comment -->"</value>></tag>
+	free text content <!> <comment><!-- <not-a-tag></not-a-tag> --></comment>
+	<comment><!-- <!doctype not a doctype> --></comment>
 <tag></<tag-name>div</tag-name>></tag>
 <tag></<tag-name>body</tag-name></tag>
 <tag>></tag>

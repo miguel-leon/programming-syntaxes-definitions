@@ -34,22 +34,28 @@
               ]
             }
           ]
-        },
-        {
-          "match": "</[a-zA-Z_][^>]*>",
-          "class": "tag",
-          "multiline": true,
-          "recursion": [
-            {
-              "match": "^</"
-            },
-            {
-              "match": "^[a-zA-Z_][a-zA-Z0-9-_.]*",
-              "class": "tag-name"
-            }
-          ]
         }
       ]
+    },
+    {
+      "match": "</[a-zA-Z_][^>]*>",
+      "class": "tag",
+      "multiline": true,
+      "recursion": [
+        {
+          "match": "^</"
+        },
+        {
+          "match": "^[a-zA-Z_][a-zA-Z0-9-_.]*",
+          "class": "tag-name"
+        }
+      ]
+    },
+    {
+      "match": "<!doctype[^>]*>",
+      "class": "tag",
+      "ignoreCase": true,
+      "multiline": true
     }
   ]
 }
