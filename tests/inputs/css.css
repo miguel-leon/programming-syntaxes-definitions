@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url("landscape.css") screen and (orientation: landscape);
+@import url("/**/landscape.css") screen and (orientation: landscape);
 @import "navigation.css";
 
 * {
@@ -50,7 +50,7 @@ p {
 }
 
 /* This is a single-line comment */
-/* This is a 
+/* This is a
 multi-line comment */
 h4 {
 	background-color:rgb(255, 99, 71);
@@ -125,8 +125,8 @@ div[class^="test"] {
 }
 
 
-@supports (display: flex) {
-	@media screen and
+@supports (display: flex) /*"asd"*/ {
+	@media screen and /*"asd"*/
 		(min-width: 900px) {
 		:root,	*,
 		.nested > div:not(:first-child, :last-child),
@@ -135,10 +135,10 @@ div[class^="test"] {
 		[attr] [attr=value] ~ [attr~=value] [attr|=value] + [attr^=value] [attr$='value'] [attr*="value"] {
 			--my-variable: 100%;
 			grid-template-areas:
-				"header header header"
+				"header header \" header;"
 				"{sidebar {content} content}"
 				"sidebar {content} content"
-				'footer footer footer';
+				'footer footer \' footer';
 			text-shadow:
 				2px 2px 2px #000000,
 				-2px -2px 2px #ffffff;
@@ -161,14 +161,14 @@ thumbs
 	suffix: " ";
 }
 
-@font-face {
+@font-face /*"asd"*/ {
 	font-family: "Trickster";
 	src: local("Trickster"),
 	url("trickster-COLRv1.otf") /*comment*/format("opentype") tech(color-COLRv1), url("trickster-outline.otf")
 	format(/*comment*/"opentype"), url("trickster-outline.woff") format("woff");
 }
 
-@keyframes important1 {
+@keyframes important1 /*"asd"*/ {
 	from
 	{
 		margin-top: 50px/*comment*/;
@@ -179,5 +179,13 @@ thumbs
 	continue comment */
 	to {
 		margin-top: /*comment*/100px;
+	}
+}
+
+@layer base, special;
+
+@layer special {
+	.item {
+		color: rebeccapurple;
 	}
 }
