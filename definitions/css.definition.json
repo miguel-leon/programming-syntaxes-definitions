@@ -159,17 +159,9 @@
               "multiline": true,
               "recursion": [
                 {
-                  "concurrent": [
-                    {
-                      "class": "string",
-                      "match": "([\"'])(?:\\\\.|[^])*?\\1"
-                    },
-                    {
-                      "match": "\\/\\*[^]*?\\*\\/",
-                      "class": "comment",
-                      "multiline": true
-                    }
-                  ]
+                  "match": "\\/\\*[^]*?\\*\\/",
+                  "class": "comment",
+                  "multiline": true
                 }
               ]
             }

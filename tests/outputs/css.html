@@ -10,7 +10,7 @@
 		<selector>#id-selector [name=Xtreme_C4se-but]</selector>  ,<comment>/*"asd"*/</comment>
 		<selector>p::first-line <comment>/*"asd"*/</comment></selector>,
 		<selector>[attr] [attr=value <comment>/*"asd"*/</comment>] ~ [attr~=value] [attr|=value] +</selector>
-<selector>		[attr^=value] [attr$=<string>'value'</string>] [attr*=<string>"value"</string>]</selector> {
+<selector>		[attr^=value] [attr$='value'] [attr*="value"]</selector> {
 			<property>--my-variable</property>: <value>100%</value>;
 			<property>grid-template-areas</property>:
 				<value><string>"header header \" header;"</string></value>
