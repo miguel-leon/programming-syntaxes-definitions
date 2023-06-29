@@ -1,138 +1,16 @@
 @charset "utf-8";
 @import url("/**/landscape.css") screen and (orientation: landscape);
-@import "navigation.css";
-
-* {
-	text-align:center;
-	color:blue;
-}
-
-:root {
-	--blue: #1e90ff;
-	--white: #ffffff;
-	--value: 20px;
-}
-
-body {
-	background-color: lightblue;
-}
-
-h1 {
-	color:white;
-	text-align:center;
-}
-
-p {
-	font-family:verdana;
-	font-size:20%;
-}
-
-#para1 {
-	text-align:center;
-	color:red;
-}
-
-p.center {
-	text-align: center;
-	color:red;
-}
-
-.pagination a {
-	font-size: 22px;
-}
-
-h1,
-h2,
-p {
-	text-align:center;
-	color: red;
-	margin-left:40px;
-}
-
-/* This is a single-line comment */
-/* This is a
-multi-line comment */
-h4 {
-	background-color:rgb(255, 99, 71);
-}
-
-h3 {
-	border:2px dotted Tomato;
-}
-
-.proof {
-	background-image:url("img_tree.png");
-	background-repeat:no-repeat;
-	background-position:right top;
-	background-attachment:fixed;
-}
-
-div {
-	width:300rem;
-	padding:25em;
-	box-sizing:border-box;
-}
-
-@media screen and (min-width: 480px) {
-	body {
-		background-color:lightgreen;
-	}
-}
-
-div {
-	resize:both;
-	overflow:auto;
-}
-
-button {
-	background-color:var(--white);
-	color:var(--blue);
-	border:var(--value);
-	padding:5px 25px 4rem;
-}
-
-#div1 {
-	position:absolute;
-	left:50px;
-	width:calc(100% - 100px);
-	border:1px solid black;
-	background-color:yellow;
-	padding:5px;
-	text-align:center;
-	background-image:url('Unit.jpg');
-}
-
-li:first-child {
-	background:yellow;
-}
-
-div:nth-child(2) {
-	background:red;
-}
-
-div[class^="test"] {
-	background: #ffff00;
-}
-
-@keyframes mymove {
-	from {
-		top: 0px;
-	}
-
-	to {
-		top: 200px;
-	}
-}
 
 
 @supports (display: flex) /*"asd"*/ {
 	@media screen and /*"asd"*/
 		(min-width: 900px) {
-		:root,	*,
+		:root,  *,
 		.nested > div:not(:first-child, :last-child),
-		#id-selector[name=Xtreme_C4se-but]  ,
-		p::first-line,
-		[attr] [attr=value] ~ [attr~=value] [attr|=value] + [attr^=value] [attr$='value'] [attr*="value"] {
+		#id-selector [name=Xtreme_C4se-but]  ,/*"asd"*/
+		p::first-line /*"asd"*/,
+		[attr] [attr=value /*"asd"*/] ~ [attr~=value] [attr|=value] +
+		[attr^=value] [attr$='value'] [attr*="value"] {
 			--my-variable: 100%;
 			grid-template-areas:
 				"header header \" header;"

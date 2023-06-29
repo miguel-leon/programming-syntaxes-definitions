@@ -2,11 +2,11 @@
   "$schema": "../node_modules/spliceation-transmutator.typescript/schema.json",
   "definition": [
     {
-      "match": "@(?:media|supports)[^{]*{(?:{(?:{(?:{(?:{(?:{(?:{(?:{[^}]*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}",
+      "match": "@(?:media|supports|layer)[^{;]*{(?:{(?:{(?:{(?:{(?:{(?:{(?:{[^}]*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}",
       "recursion": [
         {
-          "class": "identifier",
-          "match": "^@[\\w-]+"
+          "match": "^@[\\w-]+",
+          "class": "identifier"
         },
         {
           "match": "^[^{]*{",
@@ -88,26 +88,74 @@
       "match": "{(?:{(?:{(?:{(?:{(?:{(?:{(?:{[^}]*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}",
       "recursion": [
         {
-          "class": "spaces",
-          "match": "^\\s+"
-        },
-        {
-          "class": "property",
-          "match": "^[^:]+(?=:)"
-        },
-        {
-          "class": "fuck",
-          "match": ":[^;}]+",
+          "match": "[^{;:]+:(?:([\"'])(?:\\\\.|[^])*?\\1|[^;}])*",
           "recursion": [
             {
-              "match": "^:\\s*"
+              "match": "^\\s+"
             },
+            {
+              "class": "property",
+              "match": "^[^\\s:]+"
+            },
+            {
+              "match": ":[^]+",
+              "recursion": [
+                {
+                  "match": "^:\\s*"
+                },
+                {
+                  "match": "\\s*$"
+                },
+                {
+                  "class": "value",
+                  "match": "^(?:([\"'])(?:\\\\.|[^])*?\\1|[^])+",
+                  "multiline": true,
+                  "recursion": [
+                    {
+                      "concurrent": [
+                        {
+                          "class": "string",
+                          "match": "([\"'])(?:\\\\.|[^])*?\\1"
+                        },
+                        {
+                          "match": "\\/\\*[^]*?\\*\\/",
+                          "class": "comment",
+                          "multiline": true
+                        },
+                        {
+                          "match": "!important",
+                          "class": "identifier"
+                        }
+                      ]
+                    },
+                    {
+                      "class": "function",
+                      "match": "(?:[\\w-])+(?=\\()"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "concurrent": [
+        {
+          "match": "\\/\\*[^]*?\\*\\/",
+          "class": "comment",
+          "multiline": true
+        },
+        {
+          "match": "[^\\s;,](?:\\((?:\\((?:\\((?:\\((?:\\((?:\\((?:\\((?:\\([^)]*\\)|[^)])*\\)|[^)])*\\)|[^)])*\\)|[^)])*\\)|[^)])*\\)|[^)])*\\)|[^)])*\\)|[^,])*",
+          "recursion": [
             {
               "match": "\\s*$"
             },
             {
-              "class": "value",
-              "match": "^(?:([\"'])(?:\\\\.|[^])*?\\1|[^])+",
+              "match": "[^]+",
+              "class": "selector",
               "multiline": true,
               "recursion": [
                 {
@@ -122,21 +170,12 @@
                       "multiline": true
                     }
                   ]
-                },
-                {
-                  "class": "function",
-                  "match": "(?:[\\w-])+(?=\\()"
                 }
               ]
             }
           ]
         }
       ]
-    },
-    {
-      "match": "\\/\\*[^]*?\\*\\/",
-      "class": "comment",
-      "multiline": true
     }
   ]
 }

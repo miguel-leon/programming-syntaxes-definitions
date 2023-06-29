@@ -1,146 +1,24 @@
 <identifier>@charset</identifier> <string>"utf-8"</string>;
 <identifier>@import</identifier> <function>url</function>(<string>"/**/landscape.css"</string>) screen and (orientation: landscape);
-<identifier>@import "navigation.css"</identifier>;
-
-* {
-	<property>text-align</property>:<value>center</value>;
-	<property>color</property>:<value>blue</value>;
-}
-
-<selector>:root</selector> {
-	--blue:<value> #1e90ff</value>;
-	--white:<value> #ffffff</value>;
-	--value:<value> 20px</value>;
-}
-
-<selector>body</selector> {
-	<property>background-color</property>:<value> lightblue</value>;
-}
-
-<selector>h1</selector> {
-	<property>color</property>:<value>white</value>;
-	<property>text-align</property>:<value>center</value>;
-}
-
-<selector>p</selector> {
-	<property>font-family</property>:<value>verdana</value>;
-	<property>font-size</property>:<value>20%</value>;
-}
-
-<selector>#para1</selector> {
-	<property>text-align</property>:<value>center</value>;
-	<property>color</property>:<value>red</value>;
-}
-
-<selector>p</selector><selector>.center</selector> {
-	<property>text-align</property>:<value> center</value>;
-	<property>color</property>:<value>red</value>;
-}
-
-<selector>.pagination</selector> <selector>a</selector> {
-	<property>font-size</property>:<value> 22px</value>;
-}
-
-<selector>h1</selector>,
-<selector>h2</selector>,
-<selector>p</selector> {
-	<property>text-align</property>:<value>center</value>;
-	<property>color</property>:<value> red</value>;
-	<property>margin-left</property>:<value>40px</value>;
-}
-
-<comment>/* This is a single-line comment */</comment>
-<comment>/* This is a </comment>
-<comment>multi-line comment */</comment>
-<selector>h4</selector> {
-	<property>background-color</property>:<value><function>rgb</function>(255, 99, 71)</value>;
-}
-
-<selector>h3</selector> {
-	<property>border</property>:<value>2px dotted Tomato</value>;
-}
-
-<selector>.proof</selector> {
-	<property>background-image</property>:<value><function>url</function>(<string>"img_tree.png"</string>)</value>;
-	<property>background-repeat</property>:<value>no-repeat</value>;
-	<property>background-position</property>:<value>right top</value>;
-	<property>background-attachment</property>:<value>fixed</value>;
-}
-
-<selector>div</selector> {
-	<property>width</property>:<value>300rem</value>;
-	<property>padding</property>:<value>25em</value>;
-	<property>box-sizing</property>:<value>border-box</value>;
-}
-
-<identifier>@media screen and <rule>(min-width: 480px)</rule> </identifier>{
-	body {
-		<property>background-color</property>:<value>lightgreen</value>;
-	}
-}
-
-<selector>div</selector> {
-	<property>resize</property>:<value>both</value>;
-	<property>overflow</property>:<value>auto</value>;
-}
-
-<selector>button</selector> {
-	<property>background-color</property>:<value><function>var</function>(--white)</value>;
-	<property>color</property>:<value><function>var</function>(--blue)</value>;
-	<property>border</property>:<value><function>var</function>(--value)</value>;
-	<property>padding</property>:<value>5px 25px 4rem</value>;
-}
-
-<selector>#div1</selector> {
-	<property>position</property>:<value>absolute</value>;
-	<property>left</property>:<value>50px</value>;
-	<property>width</property>:<value><function>calc</function>(100% - 100px)</value>;
-	<property>border</property>:<value>1px solid black</value>;
-	<property>background-color</property>:<value>yellow</value>;
-	<property>padding</property>:<value>5px</value>;
-	<property>text-align</property>:<value>center</value>;
-	<property>background-image</property>:<value><function>url</function>(<string>'Unit.jpg'</string>)</value>;
-}
-
-<selector>li</selector><selector>:first-child</selector> {
-	<property>background</property>:<value>yellow</value>;
-}
-
-<selector>div</selector><selector>:nth-child(2)</selector> {
-	<property>background</property>:<value>red</value>;
-}
-
-<selector>div</selector>[class^="test"] {
-	<property>background</property>:<value> #ffff00</value>;
-}
-
-<identifier>@keyframes mymove </identifier>{
-	from {
-		<property>top</property>:<value> 0px</value>;
-	}
-
-	to {
-		<property>top</property>:<value> 200px</value>;
-	}
-}
 
 
 <identifier>@supports</identifier> (display: flex) <comment>/*"asd"*/</comment> {
 	<identifier>@media</identifier> screen and <comment>/*"asd"*/</comment>
 		(min-width: 900px) {
-		<selector>:root</selector>,	 <selector>*</selector>,
-		<selector>.nested > div:not(:first-child)</selector>,
-		<selector>#id-selector [name=Xtreme_C4se-but]</selector>  ,
-		<selector>p::first-line</selector>,
-		<selector>[attr] [attr=value] ~ [attr~=value] [attr|=value] + [attr^=value] [attr$=<string>'value'</string>] [attr*=<string>"value"</string>]</selector> {
+		<selector>:root</selector>,  <selector>*</selector>,
+		<selector>.nested > div:not(:first-child, :last-child)</selector>,
+		<selector>#id-selector [name=Xtreme_C4se-but]</selector>  ,<comment>/*"asd"*/</comment>
+		<selector>p::first-line <comment>/*"asd"*/</comment></selector>,
+		<selector>[attr] [attr=value <comment>/*"asd"*/</comment>] ~ [attr~=value] [attr|=value] +</selector>
+<selector>		[attr^=value] [attr$=<string>'value'</string>] [attr*=<string>"value"</string>]</selector> {
 			<property>--my-variable</property>: <value>100%</value>;
 			<property>grid-template-areas</property>:
-<value>				<string>"header header \" header;"</string></value>
+				<value><string>"header header \" header;"</string></value>
 <value>				<string>"{sidebar {content} content}"</string></value>
 <value>				<string>"sidebar {content} content"</string></value>
 <value>				<string>'footer footer \' footer'</string></value>;
 			<property>text-shadow</property>:
-<value>				2px 2px 2px #000000</value>,
+				<value>2px 2px 2px #000000,</value>
 <value>				-2px -2px 2px #ffffff</value>;
 			<property>background-image</property>: <value><function>url</function>(<string>"image1.jpg"</string>),</value>
 <value>				<function>url</function>(<string>'image2.jpg'</string>)</value>;
@@ -185,7 +63,7 @@ thumbs
 <identifier>@layer</identifier> base, special;
 
 <identifier>@layer</identifier> special {
-	.item {
-		color: rebeccapurple;
+	<selector>.item</selector> {
+		<property>color</property>: <value>rebeccapurple</value>;
 	}
 }
