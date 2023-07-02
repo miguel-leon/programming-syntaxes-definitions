@@ -9,12 +9,12 @@
           "multiline": true
         },
         {
-          "match": "<[a-zA-Z_](?:\"[^\"]*\"|'[^']*'|[^>])*>",
+          "match": "<[a-zA-Z_](?:\"[^\"]*\"|'[^']*'|[^])*?>",
           "class": "tag",
           "multiline": true,
           "recursion": [
             {
-              "match": "^<"
+              "match": "^<|>$"
             },
             {
               "match": "^[a-zA-Z_][a-zA-Z0-9-_.]*",
@@ -23,7 +23,7 @@
             {
               "concurrent": [
                 {
-                  "match": "[^\\s\\x00\"'<>/=]+",
+                  "match": "[^\\s\\x00\"'/=]+",
                   "class": "attribute"
                 },
                 {
@@ -38,7 +38,7 @@
       ]
     },
     {
-      "match": "</[a-zA-Z_][^>]*>",
+      "match": "</[a-zA-Z_][^]*?>",
       "class": "tag",
       "multiline": true,
       "recursion": [
@@ -52,7 +52,7 @@
       ]
     },
     {
-      "match": "<!doctype[^>]*>",
+      "match": "<!doctype[^]*?>",
       "class": "tag",
       "ignoreCase": true,
       "multiline": true
