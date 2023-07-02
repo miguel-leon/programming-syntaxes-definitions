@@ -1,6 +1,6 @@
 {
   "name": "programming-syntaxes-definitions",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Syntaxes definitions for various programming languages",
   "scripts": {
     "test": "jest",
