@@ -1,3 +1,149 @@
+<selector>:root</selector> {
+	<property>--main-bg-color</property>: <value>pink</value>;
+}
+
+<selector>body</selector> {
+	<property>background-color</property>: <value><function>var</function>(--main-bg-color)</value>;
+}
+  
+<selector>.div</selector> {
+	<property>resize</property>:<value>both</value>;
+	<property>overflow</property>:<value>auto</value>;
+}
+
+<selector>button</selector> {
+	<property>background-color</property>:<value><function>var</function>(--white)</value>;
+	<property>color</property>:<value><function>var</function>(--blue)</value>;
+	<property>border</property>:<value><function>var</function>(--value)</value>;
+	<property>padding</property>:<value>5px 25px 4rem</value>;
+}
+
+<selector>#div1</selector> {
+	<property>position</property>:<value>absolute</value>;
+	<property>left</property>:<value>50px</value>;
+	<property>width</property>:<value><function>calc</function>(100% - 100px)</value>;
+	<property>border</property>:<value>1px solid black</value>;
+	<property>background-color</property>:<value>yellow</value>;
+	<property>padding</property>:<value>5px</value>;
+	<property>text-align</property>:<value>center</value>;
+	<property>background-image</property>:<value><function>url</function>(<string>'Unit.jpg'</string>)</value>;
+}
+
+<selector>li:first-child</selector> {
+	<property>background</property>:<value>yellow</value>;
+}
+
+<selector>.class:nth-child(2)</selector> {
+	<property>background</property>:<value>red</value>;
+}
+
+<selector>div[class^="test"]</selector> {
+	<property>background</property>: <value>#ffff00</value>;
+}
+
+<selector>#main</selector>,
+<selector>.content</selector>,
+<selector>article</selector>,
+<selector>h1 + p</selector> {
+	<property>font-size</property>: <value>1.1em</value>;
+}
+
+<selector>:is(h1, h2:maybe-unsupported, h3)</selector> {
+	<property>font-family</property>: <value>sans-serif</value>;
+}
+
+<selector>img ~ p</selector> {
+	<property>color</property>: <value>red</value>;
+}
+
+<selector>a[href*="insensitive" i]</selector> {
+	<property>color</property>: <value>cyan</value>;
+}
+
+<selector>a[href*="cAsE" s]</selector> {
+	<property>color</property>: <value>pink</value>;
+}
+  
+<comment>/* Links that end in ".org" */</comment>
+<selector>a[href$=".org"]</selector> {
+	<property>color</property>: <value>red</value>;
+}
+  
+<comment>/* Links that start with "https" and end in \".org"\ */</comment>
+<selector>a[href^="https"][href$=".org"]</selector> {
+	<property>color</property>: <value>green</value>;
+}
+
+<selector>div[data-lang="zh-Hant-TW"]</selector> {
+	<property>color</property>: <value>purple</value>;
+}
+
+<selector>p::first-line</selector> {
+	<property>color</property>: <value>blue</value>;
+	<property>text-transform</property>: <value>uppercase</value>;
+}
+
+<selector>ul.my-things > li</selector> {
+	<property>margin</property>: <value>2em</value>;
+}
+
+<identifier>@keyframes</identifier> mymove {
+	from {
+		<property>top</property>: <value>0px</value>;
+	}
+
+	to {
+		<property>top</property>: <value>200px</value>;
+	}
+}
+
+<identifier>@supports</identifier> not selector(:has(a, b)) {
+	<comment>/* Fallback for when :has() is unsupported */</comment>
+	<selector>ul > li</selector>,
+	<selector>ol > li</selector> {
+	<comment>/* The above expanded for browsers that don't support :has(…) */</comment>
+	}
+}
+
+<identifier>@supports</identifier> (<property>transform-style</property>: <value>preserve</value>) or (<property>-moz-transform-style</property>: <value>preserve</value>) {
+}
+
+<identifier>@media</identifier> not (not (<property>transform-origin</property>: <value>2px</value>)) {
+}
+
+<identifier>@namespace</identifier> example <function>url</function>(http://www.example.com);
+	<selector>example|h1</selector> {
+		<property>color</property>: <value>blue</value>;
+	}
+
+<selector>#recursive_function</selector> {
+	<function>-moz-image-rect</function>(<function>url</function>(), top, right, bottom, left);
+}
+
+<selector>:is(:valid, :unsupported)</selector> {
+	<comment>/* … */</comment>
+}
+
+<selector>:not(<complex-selector-list>)</selector> {
+	<comment>/* ... */</comment>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <identifier>@charset</identifier> <string>"utf-8"</string>;
 <identifier>@import</identifier> <function>url</function>(<string>"/**/landscape.css"</string>) screen and (orientation: landscape);
 
