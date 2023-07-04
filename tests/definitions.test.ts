@@ -13,13 +13,13 @@ describe('Language definitions', () => {
 	test.each(
 		inputs.map(
 			input => [
-				input.replace(extname(input), ''),
+				input.replace(/\..*/, ''),
 				input
 			]
 		).filter(
 			([name]) => name.match(/^/i)
 		)
-	)('Transmuted output for language: %s.', async (language, inputFile) => {
+	)('Transmuted output for language: %s (%s).', async (language, inputFile) => {
 		const transmutation = new Transmutation(
 			Transmutation.fromJSON(await import(`../definitions/${ language }.definition.json`))
 		);
@@ -28,7 +28,7 @@ describe('Language definitions', () => {
 
 		const result = transmutation.apply(input, transmuter);
 
-		const output = (await readFile(resolve(__dirname, outputsDir, `${ language }.html`))).toString();
+		const output = (await readFile(resolve(__dirname, outputsDir, inputFile.replace(extname(inputFile), '.html')))).toString();
 
 		expect(result).toBe(output);
 	})
