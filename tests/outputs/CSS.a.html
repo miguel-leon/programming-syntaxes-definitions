@@ -1,0 +1,69 @@
+<identifier>@charset</identifier> <string>"utf-8"</string>;
+<identifier>@import</identifier> <function>url</function>(<string>"/**/landscape.css"</string>) screen and (orientation: landscape);
+
+
+<identifier>@supports</identifier> (display: flex) <comment>/*"asd"*/</comment> {
+	<identifier>@media</identifier> screen and <comment>/*"asd"*/</comment>
+		(min-width: 900px) {
+		<selector>:root</selector>,  <selector>*</selector>,
+		<selector>.nested > div:not(:first-child, :last-child)</selector>,
+		<selector>#id-selector [name=Xtreme_C4se-but]</selector>  ,<comment>/*"asd"*/</comment>
+		<selector>p::first-line <comment>/*"asd"*/</comment></selector>,
+		<selector>[attr] [attr=value <comment>/*"asd"*/</comment>] ~ [attr~=value] [attr|=value] +</selector>
+<selector>		[attr^=value] [attr$='value'] [attr*="value"]</selector> {
+			<property>--my-variable</property>: <value>100%</value>;
+			<property>grid-template-areas</property>:
+				<value><string>"header header \" header;"</string></value>
+<value>				<string>"{sidebar {content} content}"</string></value>
+<value>				<string>"sidebar {content} content"</string></value>
+<value>				<string>'footer footer \' footer'</string></value>;
+			<property>text-shadow</property>:
+				<value>2px 2px 2px #000000,</value>
+<value>				-2px -2px 2px #ffffff</value>;
+			<property>background-image</property>: <value><function>url</function>(<string>"image1.jpg"</string>),</value>
+<value>				<function>url</function>(<string>'image2.jpg'</string>)</value>;
+			<property>width</property>: <value><function>calc</function>(<function>var</function>(--my-variable) + 20px)</value>;
+			<property>color</property>  : <value>red</value>  ;
+			<property>background-color</property>: <value>blue</value>
+		}
+	}
+}
+
+<selector>dt:has(+ img) ~ dd</selector> {...}
+
+<identifier>@counter-style</identifier>
+thumbs
+{
+	<property>system</property>: <value>cyclic</value>;
+	<property>symbols</property>: <value><string>"\1F44D"</string></value>;
+	<property>suffix</property>: <value><string>" "</string></value>;
+}
+
+<identifier>@font-face</identifier> <comment>/*"asd"*/</comment> {
+	<property>font-family</property>: <value><string>"Trickster"</string></value>;
+	<property>src</property>: <value><function>local</function>(<string>"Trickster"</string>),</value>
+<value>	<function>url</function>(<string>"trickster-COLRv1.otf"</string>) <comment>/*comment*/</comment><function>format</function>(<string>"opentype"</string>) <function>tech</function>(color-COLRv1), <function>url</function>(<string>"trickster-outline.otf"</string>)</value>
+<value>	<function>format</function>(<comment>/*comment*/</comment><string>"opentype"</string>), <function>url</function>(<string>"trickster-outline.woff"</string>) <function>format</function>(<string>"woff"</string>)</value>;
+}
+
+<identifier>@keyframes</identifier> important1 <comment>/*"asd"*/</comment> {
+	from
+	{
+		<property>margin-top</property>: <value>50px<comment>/*comment*/</comment></value>;
+	}
+	50% {
+		<property>margin-top</property>: <value>150px <identifier>!important</identifier></value>;
+	} <comment>/* ignored</comment>
+<comment>	continue comment */</comment>
+	to {
+		<property>margin-top</property>: <value><comment>/*comment*/</comment>100px</value>;
+	}
+}
+
+<identifier>@layer</identifier> base, special;
+
+<identifier>@layer</identifier> special {
+	<selector>.item</selector> {
+		<property>color</property>: <value>rebeccapurple</value>;
+	}
+}
