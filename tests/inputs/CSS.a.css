@@ -64,6 +64,9 @@ thumbs
 
 @layer special {
 	.item {
-		color: rebeccapurple;
+		/*":;:"*/ /*":;:"*/
+		color/*":;:"*/
+		: /*":;:"*/rebeccapurple/*":;:"*/;
+		/*":;:"*/
 	}
 }

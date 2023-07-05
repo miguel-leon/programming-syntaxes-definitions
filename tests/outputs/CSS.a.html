@@ -29,7 +29,7 @@
 	}
 }
 
-<selector>dt:has(+ img) ~ dd</selector> {...}
+<selector>dt:has(+ img) ~ dd</selector> {<property>...</property>}
 
 <identifier>@counter-style</identifier>
 thumbs
@@ -64,6 +64,9 @@ thumbs
 
 <identifier>@layer</identifier> special {
 	<selector>.item</selector> {
-		<property>color</property>: <value>rebeccapurple</value>;
+		<comment>/*":;:"*/</comment> <comment>/*":;:"*/</comment>
+		<property>color</property><comment>/*":;:"*/</comment>
+		: <value><comment>/*":;:"*/</comment>rebeccapurple<comment>/*":;:"*/</comment></value>;
+		<comment>/*":;:"*/</comment>
 	}
 }
