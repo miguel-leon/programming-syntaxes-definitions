@@ -1,3 +1,9 @@
+@import url('landscape.css') screen and (orientation:landscape);
+@import url("fineprint.css") print;
+@import url("bluish.css") projection, tv;
+@import 'custom.css';
+@import "common.css" screen, projection;
+
 :root {
 	--main-bg-color: pink;
 }
@@ -83,7 +89,6 @@ p::first-line {
 	text-transform: uppercase;
 }
 
-
 ul.my-things > li {
 	margin: 2em;
 }
@@ -103,13 +108,21 @@ ul.my-things > li {
 	ul > li,
 	ol > li {
 	/* The above expanded for browsers that don't support :has(…) */
+	transform: translate(-100%, 50%) rotate(45deg) translate(100%, -50%);
 	}
 }
 
 @supports (transform-style: preserve) or (-moz-transform-style: preserve) {
+	.flex-container > * {
+        text-shadow: 0 0 2px blue;
+        float: none;
+    }
 }
 
 @media not (not (transform-origin: 2px)) {
+	.column {
+		width: 100%;
+	  }
 }
 
 @namespace example url(http://www.example.com);
@@ -118,13 +131,15 @@ ul.my-things > li {
 	}
 
 #recursive_function {
-	-moz-image-rect(url(), top, right, bottom, left);
+	-moz-image-region: rect(url(), top, right, bottom, left);
 }
 
 :is(:valid, :unsupported) {
 	/* … */
+	-moz-orient: vertical;
 }
 
 :not(<complex-selector-list>) {
 	/* ... */
+	grid-row-start: 5 somegridarea span;
 }

@@ -1,3 +1,9 @@
+<identifier>@import</identifier> <function>url</function>(<string>'landscape.css'</string>) screen and (orientation:landscape);
+<identifier>@import</identifier> <function>url</function>(<string>"fineprint.css"</string>) print;
+<identifier>@import</identifier> <function>url</function>(<string>"bluish.css"</string>) projection, tv;
+<identifier>@import</identifier> <string>'custom.css'</string>;
+<identifier>@import</identifier> <string>"common.css"</string> screen, projection;
+
 <selector>:root</selector> {
 	<property>--main-bg-color</property>: <value>pink</value>;
 }
@@ -102,13 +108,21 @@
 	<selector>ul > li</selector>,
 	<selector>ol > li</selector> {
 	<comment>/* The above expanded for browsers that don't support :has(…) */</comment>
+	<property>transform</property>: <value><function>translate</function>(-100%, 50%) <function>rotate</function>(45deg) <function>translate</function>(100%, -50%)</value>;
 	}
 }
 
-<identifier>@supports</identifier> (<property>transform-style</property>: <value>preserve</value>) or (<property>-moz-transform-style</property>: <value>preserve</value>) {
+<identifier>@supports</identifier> (transform-style: preserve) or (-moz-transform-style: preserve) {
+	<selector>.flex-container > *</selector> {
+        <property>text-shadow</property>: <value>0 0 2px blue</value>;
+        <property>float</property>: <value>none</value>;
+    }
 }
 
-<identifier>@media</identifier> not (not (<property>transform-origin</property>: <value>2px</value>)) {
+<identifier>@media</identifier> not (not (transform-origin: 2px)) {
+	<selector>.column</selector> {
+		<property>width</property>: <value>100%</value>;
+	  }
 }
 
 <identifier>@namespace</identifier> example <function>url</function>(http://www.example.com);
@@ -117,13 +131,15 @@
 	}
 
 <selector>#recursive_function</selector> {
-	<function>-moz-image-rect</function>(<function>url</function>(), top, right, bottom, left);
+	<property>-moz-image-region</property>: <value><function>rect</function>(<function>url</function>(), top, right, bottom, left)</value>;
 }
 
 <selector>:is(:valid, :unsupported)</selector> {
 	<comment>/* … */</comment>
+	<property>-moz-orient</property>: <value>vertical</value>;
 }
 
 <selector>:not(<complex-selector-list>)</selector> {
 	<comment>/* ... */</comment>
+	<property>grid-row-start</property>: <value>5 somegridarea span</value>;
 }
