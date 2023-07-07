@@ -5,16 +5,13 @@
       "match": "@(?:media|supports|layer)[^{;]*{(?:{(?:{(?:{(?:{(?:{(?:{(?:{[^}]*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}",
       "recursion": [
         {
-          "match": "^@[\\w-]+",
-          "class": "identifier"
+          "extends": "identifier"
         },
         {
           "match": "^[^{]*{",
           "recursion": [
             {
-              "match": "\\/\\*[^]*?\\*\\/",
-              "class": "comment",
-              "multiline": true
+              "extends": "comment"
             }
           ]
         },
@@ -31,16 +28,13 @@
       "match": "@keyframes[^{]*{(?:{(?:{(?:{(?:{(?:{(?:{(?:{[^}]*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}",
       "recursion": [
         {
-          "class": "identifier",
-          "match": "^@[\\w-]+"
+          "extends": "identifier"
         },
         {
           "match": "^[^{]*{",
           "recursion": [
             {
-              "match": "\\/\\*[^]*?\\*\\/",
-              "class": "comment",
-              "multiline": true
+              "extends": "comment"
             }
           ]
         },
@@ -48,13 +42,10 @@
           "match": "}$"
         },
         {
-          "match": "{(?:{(?:{(?:{(?:{(?:{(?:{(?:{[^}]*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}",
-          "recursion": true
+          "extends": "braces"
         },
         {
-          "match": "\\/\\*[^]*?\\*\\/",
-          "class": "comment",
-          "multiline": true
+          "extends": "comment"
         }
       ]
     },
@@ -62,30 +53,25 @@
       "match": "@[\\w-]+[^;{]*(?=[{;])",
       "recursion": [
         {
-          "class": "identifier",
-          "match": "^@[\\w-]+"
+          "extends": "identifier"
         },
         {
           "concurrent": [
             {
-              "class": "string",
-              "match": "([\"'])(?:\\\\.|[^])*?\\1"
+              "extends": "string"
             },
             {
-              "match": "\\/\\*[^]*?\\*\\/",
-              "class": "comment",
-              "multiline": true
+              "extends": "comment"
             }
           ]
         },
         {
-          "class": "function",
-          "match": "(?:[\\w-])+(?=\\()"
+          "extends": "function"
         }
       ]
     },
     {
-      "match": "{(?:{(?:{(?:{(?:{(?:{(?:{(?:{[^}]*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}",
+      "extends": "braces",
       "recursion": [
         {
           "match": "(?:([\"'])(?:\\\\.|[^])*?\\1|\\/\\*[^]*?\\*\\/|[^{};])+",
@@ -94,9 +80,7 @@
               "match": "^(?:\\/\\*[^]*?\\*\\/|[^:])+",
               "recursion": [
                 {
-                  "match": "\\/\\*[^]*?\\*\\/",
-                  "class": "comment",
-                  "multiline": true
+                  "extends": "comment"
                 },
                 {
                   "class": "property",
@@ -118,13 +102,10 @@
                     {
                       "concurrent": [
                         {
-                          "class": "string",
-                          "match": "([\"'])(?:\\\\.|[^])*?\\1"
+                          "extends": "string"
                         },
                         {
-                          "match": "\\/\\*[^]*?\\*\\/",
-                          "class": "comment",
-                          "multiline": true
+                          "extends": "comment"
                         },
                         {
                           "match": "!important",
@@ -133,8 +114,7 @@
                       ]
                     },
                     {
-                      "class": "function",
-                      "match": "(?:[\\w-])+(?=\\()"
+                      "extends": "function"
                     }
                   ]
                 }
@@ -147,9 +127,7 @@
     {
       "concurrent": [
         {
-          "match": "\\/\\*[^]*?\\*\\/",
-          "class": "comment",
-          "multiline": true
+          "extends": "comment"
         },
         {
           "match": "[^\\s;,](?:\\((?:\\((?:\\((?:\\((?:\\((?:\\((?:\\((?:\\([^)]*\\)|[^)])*\\)|[^)])*\\)|[^)])*\\)|[^)])*\\)|[^)])*\\)|[^)])*\\)|[^)])*\\)|[^,])*",
@@ -163,9 +141,7 @@
               "multiline": true,
               "recursion": [
                 {
-                  "match": "\\/\\*[^]*?\\*\\/",
-                  "class": "comment",
-                  "multiline": true
+                  "extends": "comment"
                 }
               ]
             }
@@ -173,5 +149,28 @@
         }
       ]
     }
-  ]
+  ],
+  "templates": {
+    "braces": {
+      "match": "{(?:{(?:{(?:{(?:{(?:{(?:{(?:{[^}]*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}",
+      "recursion": true
+    },
+    "identifier": {
+      "class": "identifier",
+      "match": "^@[\\w-]+"
+    },
+    "comment": {
+      "match": "\\/\\*[^]*?\\*\\/",
+      "class": "comment",
+      "multiline": true
+    },
+    "function": {
+      "class": "function",
+      "match": "(?:[\\w-])+(?=\\()"
+    },
+    "string": {
+      "class": "string",
+      "match": "([\"'])(?:\\\\.|[^])*?\\1"
+    }
+  }
 }
