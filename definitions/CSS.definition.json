@@ -2,7 +2,7 @@
   "$schema": "../node_modules/spliceation-transmutator.typescript/schema.json",
   "definition": [
     {
-      "match": "@(?:media|supports|layer)[^{;]*{(?:{(?:{(?:{(?:{(?:{(?:{(?:{[^}]*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}",
+      "match": "@(?:media|supports|layer)[^{;]*(?#braces)",
       "recursion": [
         {
           "extends": "identifier"
@@ -25,7 +25,7 @@
       ]
     },
     {
-      "match": "@keyframes[^{]*{(?:{(?:{(?:{(?:{(?:{(?:{(?:{[^}]*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}",
+      "match": "@keyframes[^{]*(?#braces)",
       "recursion": [
         {
           "extends": "identifier"
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "match": "@[\\w-]+[^;{]*(?=[{;])",
+      "match": "(?#at-rule)[^;{]*(?=[{;])",
       "recursion": [
         {
           "extends": "identifier"
@@ -74,10 +74,10 @@
       "extends": "braces",
       "recursion": [
         {
-          "match": "(?:([\"'])(?:\\\\.|[^])*?\\1|\\/\\*[^]*?\\*\\/|[^{};])+",
+          "match": "(?:(?#string)|(?#comment)|[^{};])+",
           "recursion": [
             {
-              "match": "^(?:\\/\\*[^]*?\\*\\/|[^:])+",
+              "match": "^(?:(?#comment)|[^:])+",
               "recursion": [
                 {
                   "extends": "comment"
@@ -96,7 +96,7 @@
                 },
                 {
                   "class": "value",
-                  "match": "^(?:([\"'])(?:\\\\.|[^])*?\\1|[^])+",
+                  "match": "^(?:(?#string)|[^])+",
                   "multiline": true,
                   "recursion": [
                     {
@@ -130,7 +130,7 @@
           "extends": "comment"
         },
         {
-          "match": "[^\\s;,](?:\\((?:\\((?:\\((?:\\((?:\\((?:\\((?:\\((?:\\([^)]*\\)|[^)])*\\)|[^)])*\\)|[^)])*\\)|[^)])*\\)|[^)])*\\)|[^)])*\\)|[^)])*\\)|[^,])*",
+          "match": "[^\\s;,](?:(?#parenthesis)|[^,])*",
           "recursion": [
             {
               "match": "\\s*$"
@@ -152,12 +152,19 @@
   ],
   "templates": {
     "braces": {
-      "match": "{(?:{(?:{(?:{(?:{(?:{(?:{(?:{[^}]*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}|[^}])*}",
+      "match": "{(?:(?#{8})|[^}])*}",
       "recursion": true
     },
-    "identifier": {
+    "parenthesis": {
+      "match": "\\((?:(?#{8})|[^)])*\\)"
+    },
+    "at-rule": {
       "class": "identifier",
-      "match": "^@[\\w-]+"
+      "match": "@[\\w-]+"
+    },
+    "identifier": {
+      "extends": "at-rule",
+      "match": "^(?#)"
     },
     "comment": {
       "match": "\\/\\*[^]*?\\*\\/",
