@@ -1,0 +1,183 @@
+{
+  "$schema": "../node_modules/spliceation-transmutator.typescript/schema.json",
+  "definition": [
+    {
+      "match": "@(?:media|supports|layer)[^{;]*(?#braces)",
+      "recursion": [
+        {
+          "extends": "identifier"
+        },
+        {
+          "match": "^[^{]*{",
+          "recursion": [
+            {
+              "extends": "comment"
+            }
+          ]
+        },
+        {
+          "match": "}$"
+        },
+        {
+          "match": "[^]*",
+          "recursion": true
+        }
+      ]
+    },
+    {
+      "match": "@keyframes[^{]*(?#braces)",
+      "recursion": [
+        {
+          "extends": "identifier"
+        },
+        {
+          "match": "^[^{]*{",
+          "recursion": [
+            {
+              "extends": "comment"
+            }
+          ]
+        },
+        {
+          "match": "}$"
+        },
+        {
+          "extends": "braces"
+        },
+        {
+          "extends": "comment"
+        }
+      ]
+    },
+    {
+      "match": "(?#at-rule)[^;{]*(?=[{;])",
+      "recursion": [
+        {
+          "extends": "identifier"
+        },
+        {
+          "concurrent": [
+            {
+              "extends": "string"
+            },
+            {
+              "extends": "comment"
+            }
+          ]
+        },
+        {
+          "extends": "function"
+        }
+      ]
+    },
+    {
+      "extends": "braces",
+      "recursion": [
+        {
+          "match": "(?:(?#string)|(?#comment)|[^{};])+",
+          "recursion": [
+            {
+              "match": "^(?:(?#comment)|[^:])+",
+              "recursion": [
+                {
+                  "extends": "comment"
+                },
+                {
+                  "class": "property",
+                  "match": "[^\\s]+"
+                }
+              ]
+            },
+            {
+              "match": ":[^]+",
+              "recursion": [
+                {
+                  "match": "^:\\s*|\\s*$"
+                },
+                {
+                  "class": "value",
+                  "match": "^(?:(?#string)|[^])+",
+                  "multiline": true,
+                  "recursion": [
+                    {
+                      "concurrent": [
+                        {
+                          "extends": "string"
+                        },
+                        {
+                          "extends": "comment"
+                        },
+                        {
+                          "match": "!important",
+                          "class": "identifier"
+                        }
+                      ]
+                    },
+                    {
+                      "extends": "function"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "concurrent": [
+        {
+          "extends": "comment"
+        },
+        {
+          "match": "[^\\s;,](?:(?#parenthesis)|[^,])*",
+          "recursion": [
+            {
+              "match": "\\s*$"
+            },
+            {
+              "match": "[^]+",
+              "class": "selector",
+              "multiline": true,
+              "recursion": [
+                {
+                  "extends": "comment"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "templates": {
+    "braces": {
+      "match": "{(?:(?#{8})|[^}])*}",
+      "recursion": true
+    },
+    "parenthesis": {
+      "match": "\\((?:(?#{8})|[^)])*\\)"
+    },
+    "at-rule": {
+      "class": "identifier",
+      "match": "@[\\w-]+"
+    },
+    "identifier": {
+      "extends": "at-rule",
+      "match": "^(?#)"
+    },
+    "comment": {
+      "match": "\\/\\*[^]*?\\*\\/",
+      "class": "comment",
+      "multiline": true
+    },
+    "function": {
+      "class": "function",
+      "match": "(?:[\\w-])+(?=\\()"
+    },
+    "string": {
+      "class": "string",
+      "match": "([\"'])(?:\\\\.|[^])*?\\1"
+    }
+  }
+}

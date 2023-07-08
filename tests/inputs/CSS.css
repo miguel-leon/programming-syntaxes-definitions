@@ -1,0 +1,145 @@
+@import url('landscape.css') screen and (orientation:landscape);
+@import url("fineprint.css") print;
+@import url("bluish.css") projection, tv;
+@import 'custom.css';
+@import "common.css" screen, projection;
+
+:root {
+	--main-bg-color: pink;
+}
+
+body {
+	background-color: var(--main-bg-color);
+}
+  
+.div {
+	resize:both;
+	overflow:auto;
+}
+
+button {
+	background-color:var(--white);
+	color:var(--blue);
+	border:var(--value);
+	padding:5px 25px 4rem;
+}
+
+#div1 {
+	position:absolute;
+	left:50px;
+	width:calc(100% - 100px);
+	border:1px solid black;
+	background-color:yellow;
+	padding:5px;
+	text-align:center;
+	background-image:url('Unit.jpg');
+}
+
+li:first-child {
+	background:yellow;
+}
+
+.class:nth-child(2) {
+	background:red;
+}
+
+div[class^="test"] {
+	background: #ffff00;
+}
+
+#main,
+.content,
+article,
+h1 + p {
+	font-size: 1.1em;
+}
+
+:is(h1, h2:maybe-unsupported, h3) {
+	font-family: sans-serif;
+}
+
+img ~ p {
+	color: red;
+}
+
+a[href*="insensitive" i] {
+	color: cyan;
+}
+
+a[href*="cAsE" s] {
+	color: pink;
+}
+  
+/* Links that end in ".org" */
+a[href$=".org"] {
+	color: red;
+}
+  
+/* Links that start with "https" and end in \".org"\ */
+a[href^="https"][href$=".org"] {
+	color: green;
+}
+
+div[data-lang="zh-Hant-TW"] {
+	color: purple;
+}
+
+p::first-line {
+	color: blue;
+	text-transform: uppercase;
+}
+
+ul.my-things > li {
+	margin: 2em;
+}
+
+@keyframes mymove {
+	from {
+		top: 0px;
+	}
+
+	to {
+		top: 200px;
+	}
+}
+
+@supports not selector(:has(a, b)) {
+	/* Fallback for when :has() is unsupported */
+	ul > li,
+	ol > li {
+	/* The above expanded for browsers that don't support :has(…) */
+	transform: translate(-100%, 50%) rotate(45deg) translate(100%, -50%);
+	}
+}
+
+@supports (transform-style: preserve) or (-moz-transform-style: preserve) {
+	.flex-container > * {
+        text-shadow: 0 0 2px blue;
+        float: none;
+    }
+}
+
+@media not (not (transform-origin: 2px)) {
+	.column {
+		width: 100%;
+	  }
+}
+
+@namespace example url(http://www.example.com);
+	example|h1 {
+		color: blue;
+	}
+
+#recursive_function {
+	-moz-image-region: rect(url(), top, right, bottom, left);
+}
+
+:is(:valid, :unsupported) {
+	/* … */
+	-moz-orient: vertical;
+}
+
+:not(<complex-selector-list>) {
+	/* ... */
+	grid-row-start: 5 somegridarea span;
+}

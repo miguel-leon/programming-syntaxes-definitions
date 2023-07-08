@@ -1,0 +1,72 @@
+@charset "utf-8";
+@import url("/**/landscape.css") screen and (orientation: landscape);
+
+
+@supports (display: flex) /*"asd"*/ {
+	@media screen and /*"asd"*/
+		(min-width: 900px) {
+		:root,  *,
+		.nested > div:not(:first-child, :last-child),
+		#id-selector [name=Xtreme_C4se-but]  ,/*"asd"*/
+		p::first-line /*"asd"*/,
+		[attr] [attr=value /*"asd"*/] ~ [attr~=value] [attr|=value] +
+		[attr^=value] [attr$='value'] [attr*="value"] {
+			--my-variable: 100%;
+			grid-template-areas:
+				"header header \" header;"
+				"{sidebar {content} content}"
+				"sidebar {content} content"
+				'footer footer \' footer';
+			text-shadow:
+				2px 2px 2px #000000,
+				-2px -2px 2px #ffffff;
+			background-image: url("image1.jpg"),
+				url('image2.jpg');
+			width: calc(var(--my-variable) + 20px);
+			color  : red  ;
+			background-color: blue
+		}
+	}
+}
+
+dt:has(+ img) ~ dd {...}
+
+@counter-style
+thumbs
+{
+	system: cyclic;
+	symbols: "\1F44D";
+	suffix: " ";
+}
+
+@font-face /*"asd"*/ {
+	font-family: "Trickster";
+	src: local("Trickster"),
+	url("trickster-COLRv1.otf") /*comment*/format("opentype") tech(color-COLRv1), url("trickster-outline.otf")
+	format(/*comment*/"opentype"), url("trickster-outline.woff") format("woff");
+}
+
+@keyframes important1 /*"asd"*/ {
+	from
+	{
+		margin-top: 50px/*comment*/;
+	}
+	50% {
+		margin-top: 150px !important;
+	} /* ignored
+	continue comment */
+	to {
+		margin-top: /*comment*/100px;
+	}
+}
+
+@layer base, special;
+
+@layer special {
+	.item {
+		/*":;:"*/ /*":;:"*/
+		color/*":;:"*/
+		: /*":;:"*/rebeccapurple/*":;:"*/;
+		/*":;:"*/
+	}
+}
