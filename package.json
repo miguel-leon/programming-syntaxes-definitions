@@ -7,13 +7,13 @@
     "build": "tsc && cp package.json , readme.md , definitions/ ./dist -Recurse -Force"
   },
   "peerDependencies": {
-    "spliceation-transmutator.typescript": "^0.0.10"
+    "spliceation-transmutator.typescript": "^0.0.11"
   },
   "devDependencies": {
     "@types/jest": "^29.5.2",
     "@types/node": "^20.3.0",
     "jest": "^29.5.0",
-    "spliceation-transmutator.typescript": "^0.0.10",
+    "spliceation-transmutator.typescript": "^0.0.11",
     "ts-jest": "^29.1.0",
     "typescript": "^5.1.3"
   },
