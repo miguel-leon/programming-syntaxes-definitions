@@ -31,7 +31,7 @@ describe('Language definitions', () => {
 		const output = (await readFile(resolve(__dirname, outputsDir, inputFile.replace(extname(inputFile), '.html')))).toString();
 
 		expect(result).toBe(output);
-	})
+	});
 });
 
 function transmuter(_class: string, content: string) {

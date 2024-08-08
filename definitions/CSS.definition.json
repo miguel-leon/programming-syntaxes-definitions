@@ -71,66 +71,66 @@
       ]
     },
     {
-      "extends": "braces",
-      "recursion": [
+      "concurrent": [
         {
-          "match": "(?:(?#string)|(?#comment)|[^{};])+",
+          "extends": "braces",
           "recursion": [
             {
-              "match": "^(?:(?#comment)|[^:])+",
+              "match": "(?:(?#string)|(?#comment)|[^{};])+",
               "recursion": [
                 {
-                  "extends": "comment"
-                },
-                {
-                  "class": "property",
-                  "match": "[^\\s]+"
-                }
-              ]
-            },
-            {
-              "match": ":[^]+",
-              "recursion": [
-                {
-                  "match": "^:\\s*|\\s*$"
-                },
-                {
-                  "class": "value",
-                  "match": "^(?:(?#string)|[^])+",
-                  "multiline": true,
+                  "match": "^(?:(?#comment)|[^:])+",
                   "recursion": [
                     {
-                      "concurrent": [
-                        {
-                          "extends": "string"
-                        },
-                        {
-                          "extends": "comment"
-                        },
-                        {
-                          "match": "!important",
-                          "class": "identifier"
-                        }
-                      ]
+                      "extends": "comment"
                     },
                     {
-                      "extends": "function"
+                      "class": "property",
+                      "match": "[^\\s]+"
+                    }
+                  ]
+                },
+                {
+                  "match": ":[^]+",
+                  "recursion": [
+                    {
+                      "match": "^:\\s*|\\s*$"
+                    },
+                    {
+                      "class": "value",
+                      "match": "^(?:(?#string)|[^])+",
+                      "multiline": true,
+                      "recursion": [
+                        {
+                          "concurrent": [
+                            {
+                              "extends": "string"
+                            },
+                            {
+                              "extends": "comment"
+                            },
+                            {
+                              "match": "!important",
+                              "class": "identifier"
+                            }
+                          ]
+                        },
+                        {
+                          "extends": "function"
+                        }
+                      ]
                     }
                   ]
                 }
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "concurrent": [
+        },
         {
           "extends": "comment"
         },
         {
-          "match": "[^\\s;,](?:(?#parenthesis)|[^,])*",
+          "match": "[^\\s;,](?:(?#parenthesis)|[^])*?(?=\\s*[,{])",
           "recursion": [
             {
               "match": "\\s*$"
