@@ -1,14 +1,18 @@
 {
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
     "declaration": true,
     "esModuleInterop": true,
-    "module": "CommonJS",
-    "moduleResolution": "node",
+    "exactOptionalPropertyTypes": true,
+    "experimentalDecorators": true,
     "noImplicitReturns": true,
-    "outDir": "dist",
-    "resolveJsonModule": true,
-    "strict": true,
-    "target": "ESNext"
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "./dist"
   },
-  "files": ["index.ts"]
+  "include": ["./src"]
 }

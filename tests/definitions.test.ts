@@ -17,7 +17,7 @@ describe('Language definitions', () => {
 				input
 			]
 		).filter(
-			([name]) => name.match(/^/i)
+			([name]) => name!.match(/^/i)
 		)
 	)('Transmuted output for language: %s (%s).', async (language, inputFile) => {
 		const transmutation = new Transmutation(
