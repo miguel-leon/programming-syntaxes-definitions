@@ -76,6 +76,13 @@
           "extends": "braces",
           "recursion": [
             {
+              "match": "^\\{\\s*"
+            },
+            {
+              "match": "^.+(?#braces)",
+              "recursion": true
+            },
+            {
               "match": "(?:(?#string)|(?#comment)|[^{};])+",
               "recursion": [
                 {
@@ -130,7 +137,7 @@
           "extends": "comment"
         },
         {
-          "match": "[^\\s;,](?:(?#parenthesis)|[^])*?(?=\\s*[,{])",
+          "match": "(?#selector)",
           "recursion": [
             {
               "match": "\\s*$"
@@ -154,6 +161,9 @@
     "braces": {
       "match": "{(?:(?#{8})|[^}])*}",
       "recursion": true
+    },
+    "selector": {
+      "match": "[^\\s;,](?:(?#parenthesis)|[^])*?(?=\\s*[,{])"
     },
     "parenthesis": {
       "match": "\\((?:(?#{8})|[^)])*\\)"

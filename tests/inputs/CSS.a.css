@@ -75,3 +75,9 @@ thumbs
 .x {
 }
  */
+
+@starting-style {
+	[data-blga] {
+		display: none;
+	}
+}
