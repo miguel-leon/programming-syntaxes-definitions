@@ -1,0 +1,155 @@
+<?php
+<comment>// This is a single-line comment</comment>
+<comment>#You can also make single-line comments like this</comment>
+<keyword>echo</keyword> <string>"The Best PHP Examples"</string>;
+<keyword>ECHO</keyword> <string>"Hello!<br>"</string>;
+<keyword>echo</keyword> <string>"Welcome to Developer News<br>"</string>;
+<keyword>EcHo</keyword> <string>"Enjoy all of the ad-free articles<br>"</string>;
+
+<variable>$name</variable> = <string>"Quincy"</string>;
+<keyword>echo</keyword> <string>"Hi! My name is "</string> . <variable>$name</variable> . <string>"<br>"</string>;
+<keyword>echo</keyword> <string>"Hi! My name is "</string> . <variable>$NAME</variable> . <string>"<br>"</string>;
+<keyword>echo</keyword> <string>"Hi! My name is "</string> . <variable>$NaMe</variable> . <string>"<br>"</string>;
+
+<comment>/*</comment>
+<comment>This comment block spans</comment>
+<comment>over multiple</comment>
+<comment>lines</comment>
+<comment>*/</comment>
+
+<variable>$x</variable> = <string>"Hello!"</string>;
+<variable>$y</variable> = <string>'Hello!'</string>;
+
+<variable>$x</variable> = 5;
+
+<variable>$x</variable> = <keyword>true</keyword>;
+<variable>$y</variable> = <keyword>false</keyword>;
+
+<variable>$colors</variable> = <keyword>array</keyword>(<string>"Magenta"</string>, <string>"Yellow"</string>, <string>"Cyan"</string>);
+
+<comment>// Assign the value "Hello!" to greeting</comment>
+<variable>$greeting</variable> = <string>"Hello!"</string>;
+
+<variable>$greeting</variable> = <keyword>null</keyword>;
+
+<keyword>class</keyword> Car
+{
+    <keyword>function</keyword> <function>Car</function>()
+    {
+        <variable>$this</variable>->model = <string>"Tesla"</string>;
+    }
+}
+
+<comment>// create an object</comment>
+<variable>$Lightning</variable> = <keyword>new</keyword> <function>Car</function>();
+
+<comment>// show object properties</comment>
+<keyword>echo</keyword> <variable>$Lightning</variable>->model;
+
+<variable>$c</variable> = <function>mysql_connect</function>();
+
+<keyword>abstract</keyword> <keyword>class</keyword> MyClass
+{
+    <keyword>public</keyword> <keyword>function</keyword> <function>hello</function>()
+    {
+        <keyword>echo</keyword> <string>"Hello World!"</string>;
+    }
+}
+
+<keyword>class</keyword> AnotherClass <keyword>extends</keyword> MyClass
+{
+}
+
+<variable>$item</variable> = <keyword>new</keyword> <function>AnotherClass</function>();
+<variable>$item</variable>-><function>hello</function>();
+
+<variable>$a</variable> = 4;
+<keyword>switch</keyword> (<variable>$a</variable>) {
+    <keyword>case</keyword> 1:
+        <keyword>echo</keyword> <string>"One"</string>;
+        <keyword>break</keyword>;
+    <keyword>case</keyword> 2:
+        <keyword>echo</keyword> <string>"Two"</string>;
+        <keyword>break</keyword>;
+    <keyword>case</keyword> 3:
+        <keyword>echo</keyword> <string>"Three"</string>;
+        <keyword>break</keyword>;
+    <keyword>default</keyword>:
+        <keyword>echo</keyword> <string>"Many"</string>;
+        <keyword>break</keyword>;
+}
+
+<keyword>try</keyword>
+{
+    <keyword>throw</keyword> <keyword>new</keyword> <function>pene</function>(<string>"This is an exception"</string>);
+} 
+<keyword>catch</keyword> (Exception <variable>$e</variable>)
+{
+    <keyword>echo</keyword> <variable>$e</variable>-><function>getMessage</function>();
+}
+
+<keyword>class</keyword> MyClass
+{
+    <keyword>public</keyword> <variable>$amount</variable>;
+}
+
+<comment>// Create an object with a reference</comment>
+<variable>$value</variable> = 5;
+<variable>$obj</variable> = <keyword>new</keyword> <function>MyClass</function>();
+<variable>$obj</variable>->amount = &<variable>$value</variable>;
+
+<comment>// Clone the object</comment>
+<variable>$copy</variable> = <keyword>clone</keyword> <variable>$obj</variable>;
+
+<comment>// Change the value in the original object</comment>
+<variable>$obj</variable>->amount = 6;
+
+<comment>// The copy is changed</comment>
+<function>print_r</function>(<variable>$copy</variable>);
+
+<keyword>class</keyword> MyClass
+{
+    <keyword>const</keyword> MY_CONSTANT = 5;
+}
+
+<keyword>echo</keyword> MyClass::MY_CONSTANT;
+
+<keyword>trait</keyword> Hola
+{
+    <keyword>public</keyword> <keyword>function</keyword> <function>decirHola</function>()
+    {
+        <keyword>echo</keyword> <string>'Hola'</string>;
+    }
+}
+
+<keyword>trait</keyword> Mundo
+{
+    <keyword>public</keyword> <keyword>function</keyword> <function>decirMundo</function>()
+    {
+        <keyword>echo</keyword> <string>'Mundo!'</string>;
+    }
+}
+
+<keyword>trait</keyword> HolaMundo
+{
+    <keyword>use</keyword> Hola, Mundo;
+}
+
+<keyword>class</keyword> MiHolaMundo
+{
+    <keyword>use</keyword> HolaMundo;
+}
+
+<variable>$o</variable> = <keyword>new</keyword> <function>MiHolaMundo</function>();
+<variable>$o</variable>-><function>decirHola</function>();
+<variable>$o</variable>-><function>decirMundo</function>();
+<variable>$str</variable> = <string>"Is your name O'Reilly?"</string>;
+
+<comment>// Outputs: Is your name O\'Reilly?</comment>
+<keyword>echo</keyword> <function>addslashes</function>(<variable>$str</variable>);
+<keyword>echo</keyword> <string>"alert("</string> . <function>json_encode</function>(<variable>$var</variable>) . <string>");\n"</string>;
+
+<variable>$name</variable> = <string>"PHP"</string>;
+<keyword>echo</keyword> <string>"I am reading <interpolation>{<variable>$name</variable>}</interpolation>POT"</string>;
+
+?>
